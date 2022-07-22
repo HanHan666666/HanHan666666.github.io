@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>贪心算法练习 | AmazingBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+ 
+  
+    <link rel="icon" href="https://blog.666baby.com/wp-content/uploads/2022/01/cropped-%E6%9C%AA%E6%A0%87%E9%A2%98-1-32x32.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+          <a class="main-nav-link" href="/board">留言</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-贪心算法练习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="name">
+      贪心算法练习
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2022/01/02/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/" class="article-date">
+  <time datetime="2022-01-02T11:49:15.000Z" itemprop="datePublished">2022-01-02</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="便利店"><a href="#便利店" class="headerlink" title="便利店"></a>便利店</h2><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>天宝来到便利店想买些饮料。便利店有各种型号的瓶装饮料售卖，不同型号的饮料卖不同的价格。1瓶0.25升的卖A元，1瓶0.5升的饮料卖B元，1瓶1升的卖C元，1瓶2升的卖D元。便利店里每种饮料都是无限供应。</p>
+<p>天宝要买N升的饮料，最少需要花多少钱呢？聪明的你写个程序帮她算算吧。</p>
+<p>已知 </p>
+<p>1）  1≤A,B,C,D≤108 ，1≤N≤109   </p>
+<p>2）   输入的数据都是整数 </p>
+<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><p>输入数据按照下面格式</p>
+<p>A B C D</p>
+<p>N</p>
+<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><p>输出天宝要买N升的饮料所需要花的钱最小值。</p>
+<h4 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h4><p>20 30 70 90<br>3</p>
+<h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h4><p>150</p>
+<h4 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h4><p>买1瓶2升的饮料和2瓶0.5升的饮料。 这样正好可以买到3升饮料，花费是 90+30+30&#x3D;150 元。</p>
+<h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p>最简单的一个，将价格分成两个部分，分别得到一升的最低价格，然后得到两升的最低价格（因为两升的饮料可以直接买两升，也可以买两个1升），然后用总升数N整除2乘按两升买的最低价格，然后N再对2求余数乘只能按1升买的价格。</p>
+<p>一定要把所有的数换成long long类型，否则会造成溢出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    long long a, b, c, d, n;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b &gt;&gt; c &gt;&gt; d;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    long long min1 = min(min(a * 4, b * 2), c);</span><br><span class="line">    long long min2 = min(min1 * 2, d);</span><br><span class="line">    cout &lt;&lt; n / 2 * min2 + n % 2 * min1 &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="删数问题"><a href="#删数问题" class="headerlink" title="删数问题"></a>删数问题</h2><p>给定一个十进制正整数 <em>n</em>(0&lt;<em>n</em>&lt;1000000000)，每个数位上数字均不为 00。<em>n</em> 的位数为 _m_。<br>现在从 <em>m</em> 位中删除 <em>k</em> 位(0&lt;<em>k</em>&lt;<em>m</em>)，求生成的新整数最小为多少？<br>例如: _n_=9128456,_k_=2, 则生成的新整数最小为 12456。</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行 <em>t</em>, 表示有 <em>t</em> 组数据；<br>接下来 <em>t</em> 行，每一行表示一组测试数据，每组测试数据包含两个数字 <em>n</em>,_k_。</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>t 行，每行一个数字，表示从 <em>n</em> 中删除 <em>k</em> 位后得到的最小整数。</p>
+<p>输出时每行末尾的多余空格，不影响答案正确性</p>
+<h4 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入"></a>样例输入</h4><p>2<br>9128456 2<br>1444 3</p>
+<h4 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出"></a>样例输出</h4><p>12456<br>1</p>
+<h4 id="题解：-1"><a href="#题解：-1" class="headerlink" title="题解："></a>题解：</h4><p>方法是如果一个数大于他后边的数，那么就把他删除掉。因为要生成最小的整数，就一定要删除最靠前的而且比较大的那一个。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int t;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    while (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        int k;</span><br><span class="line">        string s;</span><br><span class="line">        cin &gt;&gt; s &gt;&gt; k;</span><br><span class="line">        while (k--)</span><br><span class="line">        &#123;</span><br><span class="line">            </span><br><span class="line">            for (long unsigned int i = 0; i &lt; s.size(); i++)</span><br><span class="line">            &#123;</span><br><span class="line">                if (s[i] &gt; s[i + 1])</span><br><span class="line">                &#123;</span><br><span class="line">                    s.erase(s.begin() + i);</span><br><span class="line">                    i--;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; s &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "j7cOI85uofC4BmWjlUOCkqrN-gzGzoHsz",
+        app_key: "g6Bg0W8QxTnrlamF8JwPt6Rr",
+        placeholder: "留下你来过的痕迹~",
+        avatar:"robohash",
+    });
+</script>
+
+  </section>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+    <div class="widget-wrap-info">
+        <img src="https://blog.666baby.com/wp-content/uploads/2021/12/Pasted-2.png" class="widget-wrap-info-img">
+        <div class="widget-wrap-info-author">吴晗</div>
+        <div class="widget-wrap-info-signature">业精于勤，荒于嬉。</div>
+    </div>
+    <div class="info-nav">
+        <ul class="info-nav-ul">
+        
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="home"></i>
+                    </span>
+                    <span class="info-nav-name">首页</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/archives">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="archive"></i>
+                    </span>
+                    <span class="info-nav-name">归档</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/about">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="alert-circle"></i>
+                    </span>
+                    <span class="info-nav-name">关于</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/board">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="edit-3"></i>
+                    </span>
+                    <span class="info-nav-name">留言</span>
+                </div>
+            </a>
+           </li>
+          
+        </ul>
+    </div>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 吴晗<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> | Theme by  <a href="https://github.com/FuShaoLei/hexo-theme-hiya" target="_blank">Hiya</a>
+      
+        <br>
+        <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+      <span id="busuanzi_container_site_uv">
+        访客数<span id="busuanzi_value_site_uv"></span>人次
+      </span>
+        
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/,home" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives,archive" class="mobile-nav-link">归档</a>
+  
+    <a href="/about,alert-circle" class="mobile-nav-link">关于</a>
+  
+    <a href="/board,edit-3" class="mobile-nav-link">留言</a>
+  
+</nav>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script>
+    feather.replace()
+</script>
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

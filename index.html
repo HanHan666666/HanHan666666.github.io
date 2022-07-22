@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>AmazingBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+ 
+  
+    <link rel="icon" href="https://blog.666baby.com/wp-content/uploads/2022/01/cropped-%E6%9C%AA%E6%A0%87%E9%A2%98-1-32x32.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+          <a class="main-nav-link" href="/board">留言</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-uniapp-nvue出现大量的样式文件报错问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/07/21/uniapp-nvue%E5%87%BA%E7%8E%B0%E5%A4%A7%E9%87%8F%E7%9A%84%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/">Uniapp NVue出现大量的样式文件报错问题</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2022/07/21/uniapp-nvue%E5%87%BA%E7%8E%B0%E5%A4%A7%E9%87%8F%E7%9A%84%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/" class="article-date">
+  <time datetime="2022-07-21T08:39:51.000Z" itemprop="datePublished">2022-07-21</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在uniapp加入地图组建的时候需要用到marker的上的气泡 callout</p>
+<p>然而使用marker的上的气泡callout又需要Nvue，于是创建了一个Nvue文件，编译的时候出现了大量的警告。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/image-24.png"></p>
+<p>由于因为新添加了一个地图页面导致了大量的报错，所以一直再找地图的问题。</p>
+<p>直到看到一个视频👇</p>
+<p>视频中提到了一个全局样式问题，app.vue中的全局样式会应用到所有文件，所以nvue页面也不例外。</p>
+<p><a target="_blank" rel="noopener" href="https://uniapp.dcloud.io/collocation/App.html#%E5%85%A8%E5%B1%80%E6%A0%B7%E5%BC%8F">uni-app 全局样式</a></p>
+<p>因为App.vue中的全局样式不符合nvue的写法，所以会导致报错。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/6Q31C0FNAOOB3EQSGK.jpg"></p>
+<p>解决方法：使用条件编译，让编译器忽略这部分代码</p>
+<p><a target="_blank" rel="noopener" href="https://uniapp.dcloud.io/tutorial/platform.html#preprocessor">跨端兼容 uni-app官网 (dcloud.io)</a></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/image-25.png"></p>
+<p>弄好之后还是不可以的话，考虑一下是不是组件库出问题了，</p>
+<p>把我自己写的CSS样式弄成局部样式，组件库CSS条件编译，问题解决。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/image-26.png"></p>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-uniapp打包后hbuilder版本或cli版本与手机端sdk版本不一致" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/07/17/uniapp%E6%89%93%E5%8C%85%E5%90%8Ehbuilder%E7%89%88%E6%9C%AC%E6%88%96cli%E7%89%88%E6%9C%AC%E4%B8%8E%E6%89%8B%E6%9C%BA%E7%AB%AFsdk%E7%89%88%E6%9C%AC%E4%B8%8D%E4%B8%80%E8%87%B4/">uniapp打包后HBuilder版本或cli版本与手机端SDK版本不一致</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2022/07/17/uniapp%E6%89%93%E5%8C%85%E5%90%8Ehbuilder%E7%89%88%E6%9C%AC%E6%88%96cli%E7%89%88%E6%9C%AC%E4%B8%8E%E6%89%8B%E6%9C%BA%E7%AB%AFsdk%E7%89%88%E6%9C%AC%E4%B8%8D%E4%B8%80%E8%87%B4/" class="article-date">
+  <time datetime="2022-07-17T08:22:56.000Z" itemprop="datePublished">2022-07-17</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一群垃圾，全他妈的抄来抄去的狗屎 👇</p>
+<p>只会无脑抄官方的教程，<strong>还放出来污染搜索引擎</strong>。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/image-12.png"></p>
+<p>运行的环境是 vite+uniapp</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/image-21.png"></p>
+<p>然后用 <code>npm run build:app</code> 生成app打包文件，再用HbuilderX打开进行APP云打包，安装到手机上运行，就会出现这样版本不一致的错误。</p>
+<p>但是用上面的方法创建了项目，会导致项目中的cli版本过高（3.5.2），然而HBuilderX的最高版本也才（3.5.1）这注定是一个报错的局。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/image-16.png"></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/Snipaste_2022-07-17_15-44-13.png"></p>
+<p>解决方法：</p>
+<p>删掉node_moudles文件夹，去掉版本号前面的<code>^</code>，然后确认HBuliderX的版本是否与package.json中的版本是否一致。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/image-14.png"></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/image-17.png"></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/image-20.png"></p>
+<p>全部去掉，重新<code>npm install</code>，重新打包运行。</p>
+<p>这官方文档可真是不是一般的不详细👎👎👎👎👎👎</p>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-visual-studio-code-c-language" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/07/16/visual-studio-code-c-language/">Visual Studio Code 配置C语言环境</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2022/07/16/visual-studio-code-c-language/" class="article-date">
+  <time datetime="2022-07-16T08:06:23.000Z" itemprop="datePublished">2022-07-16</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="安装C-x2F-C-编译器"><a href="#安装C-x2F-C-编译器" class="headerlink" title="安装C&#x2F;C++编译器"></a>安装C&#x2F;C++编译器</h2><p>推荐下载网站<a target="_blank" rel="noopener" href="http://winlibs.com/">http://winlibs.com/</a></p>
+<p>找一个最新版本下载并安装</p>
+<p>如果下载慢的话，右键复制链接到迅雷下载，或者使用FDM等多线程下载软件。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/03/image-23.png"></p>
+<p>建议下载Win64版本，7z或zip均可</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/03/image-24.png"></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-14.png"></p>
+<p>一定要全英文路径的目录（每一级文件夹都不要有中文）</p>
+<p>例如 E:\mingw</p>
+<h3 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h3><p>C语言需要先编译成一个可执行文件，然后才能运行，因为vscode仅是一个用来打代码的编辑器，不提供对代码的编译功能，需要手动安装编译器才能够正常使用，刚才上面下载的文件便是C&#x2F;C++的编译器。</p>
+<p>Dev C++或者是cfree安装之后即可使用，是因为它是一个IDE(Integrated Development Environment,集成式开发环境)，集成了C语言的编译器，打开软件安装目录可以看到mingw文件夹，这个文件夹便里面存的是它的编译器。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-9.png"></p>
+<p>其实我们也可以使用它的编译器，但是版本实在是太低了</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-10.png"></p>
+<h2 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h2><p>解压完成之后，找到解压出来的文件，复制文件内bin</p>
+<p>例如：E:\mingw64\bin</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-7.png"></p>
+<p>然后 Windows 10&#x2F;11 : 开始按钮右键——系统——高级系统设置——环境变量。</p>
+<p>或者桌面 ”此电脑“ 图标右键——属性——高级系统设置——环境变量。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-2.png"></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted.png"></p>
+<p>记得把输入框中的双引号去掉，然后全部点击确定，然后测试环境变量</p>
+<h2 id="在终端中测试环境变量："><a href="#在终端中测试环境变量：" class="headerlink" title="在终端中测试环境变量："></a>在终端中测试环境变量：</h2><p>“开始按钮右键打开PowerShell”</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-3.png"></p>
+<p>win+R 运行 cmd 在终端中输入 <code>gcc -v</code>  会输出以上版本信息 ，表明配置成功</p>
+<h2 id="在vscode中安装一个必需的扩展"><a href="#在vscode中安装一个必需的扩展" class="headerlink" title="在vscode中安装一个必需的扩展"></a><strong>在vscode中安装一个必需的扩展</strong></h2><p>以上几步是安装完成了编译器，现在要添加VScode对C语言的支持。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/image.png"></p>
+<p>安装完插件，找一个**<em>不包含中文路径的</em>**位置新建文件夹，然后拖到vscode里面</p>
+<p>写一个C语言或者C++ helloworld文件，初始化环境。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/mstsc_0CxySHDVWV.gif"></p>
+<p>如果弹出是否信任这个文件夹一定要点信任，因为这是你写的代码。</p>
+<p>否则你写的程序会无法运行。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-17.png"></p>
+<p>接着点击右上角的 ”设置“ 图标，提示选择调试配置，C++选择第一项，C语言选择第三项。</p>
+<p>选择之后会弹出一堆配置文件，关掉即可，转到写的代码，然后按下F5即可运行</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/image-6.png"></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/ApplicationFrameHost_uvS7QvWYWr.png"></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/mstsc_COIfvMyKcp.gif"></p>
+<p><strong>动图演示</strong></p>
+<p>配置完成！</p>
+<h2 id="弹出黑框框运行程序"><a href="#弹出黑框框运行程序" class="headerlink" title="弹出黑框框运行程序"></a>弹出黑框框运行程序</h2><p><strong>不推荐这种方式，极其不方便。</strong></p>
+<p>如果程序一闪而过，那么就在程序最后一行加上<code>system(&quot;pause&quot;);</code></p>
+<p>注意不要加到 <code>return 0;</code> 后面。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/image-8.png"></p>
+<h2 id="debug-打断点"><a href="#debug-打断点" class="headerlink" title="debug 打断点"></a>debug 打断点</h2><p>需要打开一个工作区（文件夹），因为debug的配置文件存在一个工作区当中。</p>
+<p>程序路径不要有中文，否则会报错</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/mstsc_hGzI3VngUH.gif"></p>
+<p><code>F5</code>默认是debug模式，打完断点之后直接<code>F5</code>即可，也可以选择右上角的选项。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/image-9.png"></p>
+<p>开始调试之后内容会在终端输出：</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/image-10.png"></p>
+<blockquote>
+<p>参考：</p>
+<p><a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/cpp/config-mingw">Get Started with C++ and Mingw-w64 in Visual Studio Code</a></p>
+</blockquote>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-小米10umi-开发版救砖过程记录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/07/08/%E5%B0%8F%E7%B1%B310umi-%E5%BC%80%E5%8F%91%E7%89%88%E6%95%91%E7%A0%96%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/">小米10(umi)-开发版救砖过程记录</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2022/07/08/%E5%B0%8F%E7%B1%B310umi-%E5%BC%80%E5%8F%91%E7%89%88%E6%95%91%E7%A0%96%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/" class="article-date">
+  <time datetime="2022-07-08T06:50:02.000Z" itemprop="datePublished">2022-07-08</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>开发板内测版本：22.7.7</p>
+<p>升级到7.7版本之后出现了开机闪屏，原因未知。</p>
+<p>解决方法只有一个，重新安装当前版本的安装包</p>
+<p>最近由于小米越来越流氓的政策，无法下载开发板内测的刷机包，只能去第三方网站下载。</p>
+<p><a target="_blank" rel="noopener" href="https://miuiver.com/">MIUI历史版本 – 各机型MIUI旧版本下载索引 (miuiver.com)</a></p>
+<p>在这个网站上👆找到需要的miui版本</p>
+<p>官方REC也基本上废了，去欧洲版社区找一个比较新的twrp，需要支持安卓12。</p>
+<p><a target="_blank" rel="noopener" href="https://xiaomi.eu/community/threads/twrp-for-android-12-mi-10-and-other-models.64186/">TWRP for Android 12 (MI 10, and other models ) Xiaomi European Community MIUI ROM Since 2010</a></p>
+<p>然后刷入REC：</p>
+<p>刷入REC：<code>fastboot flash recovery .\twrp-3.6.2_12-v3.7_A12-umi-skkk.img</code></p>
+<p>启动REC：<code>fastboot boot .\twrp-3.6.2_12-v3.7_A12-umi-skkk.img</code></p>
+<p>启动之后在设置里面打开miui更新支持</p>
+<p>然后进入adb sideload模式（不需要清除数据）</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/0fafbfd5807bf2221bb83933a07a74e.png"></p>
+<p>刷机完成之后重启，成不成看运气。</p>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-failed-to-connect-to-192-168-21-9040179" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/06/26/failed-to-connect-to-192-168-21-9040179/">failed to connect to 192.168.21.90:40179</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2022/06/26/failed-to-connect-to-192-168-21-9040179/" class="article-date">
+  <time datetime="2022-06-26T06:58:17.000Z" itemprop="datePublished">2022-06-26</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://blog.666baby.com/wp-content/uploads/2022/06/image.png"></p>
+<p>adb连接失败</p>
+<p>插上线，连接adb，信任以下设备，在网络连接即可</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/06/Screenshot_2022-06-26-14-55-55-651_com.android.sy_.jpg"></p>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-ubuntu22-04wslnochinese" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/26/ubuntu22-04wslnochinese/">Ubuntu22.04WSL安装时中文乱码</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2022/04/26/ubuntu22-04wslnochinese/" class="article-date">
+  <time datetime="2022-04-26T07:20:37.000Z" itemprop="datePublished">2022-04-26</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+
+          
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WSL/" rel="tag">WSL</a></li></ul>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如下图，全是方块的情况下一般是没有字体，想办法在安装之前把字体装好就可以解决问题。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/Snipaste_2022-04-26_13-56-22.png"></p>
+<p>本文提供的思路是解压WSL的安装包，将中文字体复制进ubuntu2204系统文件压缩包<code>install.tar.gz</code>，然后替换原来的<code>install.tar.gz</code>，再进行安装。</p>
+<p>众所周知，直接在应用商店安装是拿不到安装包的</p>
+<p>想要拿到安装包必须要去一个第三方网站：<a target="_blank" rel="noopener" href="https://store.rg-adguard.net/">Microsoft Store - Generation Project (v1.2.3) [by @rgadguard &amp; mkuba50] (rg-adguard.net)</a></p>
+<p>将Microsoft Store链接粘贴进去即可拿到直链</p>
+<p>在Store点击分享，然后复制链接</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-20.png"></p>
+<p>下载体积最大的那个版本</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-21.png"></p>
+<p>下载之后直接使用7zip打开，会发现有两个架构的appx，根据需要选择一个，其他的文件不需要。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-22.png"></p>
+<p>将他复制出来再次解压可以发现一个<code>intslall.tar.gz</code>文件，这个文件应该就是WSL的系统文件。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-19.png"></p>
+<p>我们需要修改这个压缩包，将中文字体复制进去，再重新进行打包。</p>
+<p>解包和打包这一系列操作可以在另一个WSL中进行。</p>
+<p>将install.tar.gz复制到虚拟机目录中。</p>
+<p>为避免在NTFS下打包和解包带来不必要的麻烦，复制到Linux虚拟机中的ext4文件系统下进行操作。</p>
+<p>使用<code>sudo tar -xvzf install.tar.gz</code>解包。</p>
+<p>在解包出来文件的<code>usr/share/fonts/</code>新建一个文件夹名称随意。</p>
+<p>将字体复制到<code>usr/share/fonts/PingFangSC</code></p>
+<p>如果用explorer操作WSL目录时出现权限问题，可以将这个文件夹设置权限：<code>sudo chmod 777 PingFangSC</code></p>
+<p>(记得在确保安全的情况下使用777权限)</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-24.png"></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-25.png"></p>
+<p>添加完成之后再打包成<code>install.tar.gz</code>替换原来的文件。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-26.png"></p>
+<p><code>sudo tar zcvf install.tar.gz .</code></p>
+<p>然后安装Ubuntu22.04 WSL</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-27.png"></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-28.png"></p>
+<p>成功安装苹方字体。</p>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-diycode-serverandgithubaction" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/18/diycode-serverandgithubaction/">定制code-server docker镜像，并GitHub自动构建</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2022/04/18/diycode-serverandgithubaction/" class="article-date">
+  <time datetime="2022-04-18T08:44:31.000Z" itemprop="datePublished">2022-04-18</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-6.png"></p>
+<h2 id="编写Dockerfile"><a href="#编写Dockerfile" class="headerlink" title="编写Dockerfile"></a>编写Dockerfile</h2><p>对于镜像的需求主要是集成C++和Java环境。</p>
+<p>需要安装两个语言的编译器，和相应的vscode插件。</p>
+<p>由于code-server属于第三方编译的vscode版本，然而vscode的插件商店是没有开源的，所以对于cpptools这个插件只能从GitHub仓库下载后离线安装。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">FROM codercom/code-server:latest</span><br><span class="line"></span><br><span class="line"># 安装编译器</span><br><span class="line">RUN sudo apt-get update \</span><br><span class="line">    &amp;&amp; sudo apt-get install -y \</span><br><span class="line">    gcc \</span><br><span class="line">    gdb \</span><br><span class="line">    g++ \</span><br><span class="line">    python3 \</span><br><span class="line">    openjdk-17-jdk \</span><br><span class="line">    wget</span><br><span class="line"></span><br><span class="line">#安装插件</span><br><span class="line">RUN code-server --install-extension redhat.java \</span><br><span class="line">    &amp;&amp; code-server --install-extension vscjava.vscode-maven \</span><br><span class="line">    &amp;&amp; code-server --install-extension vscjava.vscode-java-dependency \</span><br><span class="line">    &amp;&amp; code-server --install-extension vscjava.vscode-java-debug \</span><br><span class="line">    &amp;&amp; code-server --install-extension vscjava.vscode-java-test \</span><br><span class="line">    &amp;&amp; code-server --install-extension formulahendry.code-runner </span><br><span class="line"></span><br><span class="line">RUN wget https://github.com/microsoft/vscode-cpptools/releases/download/v1.9.7/cpptools-linux.vsix \</span><br><span class="line">    &amp;&amp; code-server --install-extension cpptools-linux.vsix &amp;&amp; rm cpptools-linux.vsix</span><br></pre></td></tr></table></figure>
+
+<p>在保证良好的网络条件下，构建镜像</p>
+<p><code>sudo docker build -t hanplus/candjava-code-server:2.0 .</code></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-5.png"></p>
+<h2 id="测试镜像"><a href="#测试镜像" class="headerlink" title="测试镜像"></a>测试镜像</h2><p>使用<code>docker run</code>来运行生成的镜像</p>
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p><code>--name</code> 设置容器的名字</p>
+<p><code>-p</code> 端口映射，外部端口:内部端口</p>
+<p><code>-v</code> 挂载目录 冒号”:”前面的目录是宿主机目录，后面的目录是容器内目录。目的是把code-server的配置文件放到容器外面防止容器进一步变大</p>
+<p><code>-w</code> 设置运行的默认目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -it \</span><br><span class="line">--name code-server \</span><br><span class="line">-p 666:8080 \</span><br><span class="line">-v ~/.config/code-server:/home/coder/.config/code-server  \</span><br><span class="line">-v ~/.local/share/code-server:/home/coder/.local/share/code-server \</span><br><span class="line">-v ~/Personal:/home/coder/Personal \</span><br><span class="line">-w /home/coder/Personal \</span><br><span class="line">hanplus/candjava-code-server:3.0</span><br></pre></td></tr></table></figure>
+
+<p>启动容器</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-9.png"></p>
+<p>会产生权限问题，挂载目录后的所有者为root，把这三个个文件夹的所有者修改为ubuntu</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-8.png"></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-12.png"></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-11.png"></p>
+<p>运行成功</p>
+<h2 id="使用GitHub-Action自动构建镜像"><a href="#使用GitHub-Action自动构建镜像" class="headerlink" title="使用GitHub Action自动构建镜像"></a>使用GitHub Action自动构建镜像</h2><p>创建一个工作流程<a target="_blank" rel="noopener" href="https://github.com/HanHan666666/candjava_code-server/blob/aa9a2068384529a2f45a5a37d89ca4391046fb77/.github/workflows/docker-image.yml"><code>.github/workflows/docker-image.yml</code></a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">name: Docker Image CI</span><br><span class="line"></span><br><span class="line">on:</span><br><span class="line">  push:</span><br><span class="line">    branches: [ main ]</span><br><span class="line">  pull_request:</span><br><span class="line">    branches: [ main ]</span><br><span class="line"></span><br><span class="line">jobs:</span><br><span class="line"></span><br><span class="line">  build:</span><br><span class="line"></span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line"></span><br><span class="line">    steps:</span><br><span class="line">    - uses: actions/checkout@v3</span><br><span class="line">    - name: Build the Docker image</span><br><span class="line">      run: docker build -t hanplus/candjava-code-server:2.0 .</span><br><span class="line">      </span><br><span class="line">    - name: Login to Docker Hub</span><br><span class="line">      uses: docker/login-action@v1</span><br><span class="line">      with:</span><br><span class="line">          username: $&#123;&#123; secrets.DOCKER_USERNAME &#125;&#125;</span><br><span class="line">          password: $&#123;&#123; secrets.DOCKER_PASSWORD &#125;&#125;</span><br><span class="line">    - name: Build and push</span><br><span class="line">      uses: docker/build-push-action@v2</span><br><span class="line">      with:</span><br><span class="line">          push: true</span><br><span class="line">          tags: hanplus/candjava-code-server:2.0</span><br></pre></td></tr></table></figure>
+
+<p>开始构建</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-14.png"></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-17.png"></p>
+<p>目前还没有找到方法，在coder&#x2F;code-server镜像推送后自动构建本镜像，敬请期待。</p>
+<h2 id="服务器自动更新"><a href="#服务器自动更新" class="headerlink" title="服务器自动更新"></a>服务器自动更新</h2><p>仅仅需要一个简单的shell脚本，配合宝塔面板的计划任务，每晚自动检查更新。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/05/image.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#pull镜像，如果是最新镜像，输出中会包含&quot;Image is up to date&quot;，并将输出赋值到变量</span><br><span class="line">isUpdate=$(docker pull hanplus/candjava-code-server:latest)</span><br><span class="line"></span><br><span class="line">#作为日志输出</span><br><span class="line">echo $isUpdate</span><br><span class="line">strB=&quot;Image is up to date&quot;</span><br><span class="line"></span><br><span class="line">#检查字串，判断是否是最新镜像</span><br><span class="line">if [[ $isUpdate =~ $strB ]]</span><br><span class="line">then</span><br><span class="line">  echo &quot;无需更新&quot;</span><br><span class="line">  exit</span><br><span class="line">else</span><br><span class="line">  echo &quot;准备更新&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker rm -f  666baby_code-server #删除旧的容器</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#开始运行新的容器</span><br><span class="line">docker run -d \</span><br><span class="line">--name 666baby_code-server   \</span><br><span class="line">-p 666:8080 \</span><br><span class="line">-p 676:22 \</span><br><span class="line">-v /www/wwwroot/code.666baby.com/code-server.config:/home/coder/.config/code-server  \</span><br><span class="line">-v /www/wwwroot/code.666baby.com/data:/home/coder/.local/share/code-server \</span><br><span class="line">-v /www/wwwroot/code.666baby.com/Personal:/home/coder/Personal \</span><br><span class="line">-w /home/coder/Personal \</span><br><span class="line">--restart=always \</span><br><span class="line">hanplus/candjava-code-server</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/05/image-1.png"></p>
+<p>目前还没实现自动启动构建镜像在官方发布镜像的时候。</p>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-opemwrt-module-luci-cbi-datatypes-not-found" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/12/opemwrt-module-luci-cbi-datatypes-not-found/">OpemWrt module &#39;luci.cbi.datatypes&#39; not found:</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2022/04/12/opemwrt-module-luci-cbi-datatypes-not-found/" class="article-date">
+  <time datetime="2022-04-12T04:05:01.000Z" itemprop="datePublished">2022-04-12</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/uncategorized/">uncategorized</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/Y3_IXARAV0NWU3N3CEK.jpg"></p>
+<p><code>opkg install luci-compat</code></p>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-使用curl的post请求上传文件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/30/%E4%BD%BF%E7%94%A8curl%E7%9A%84post%E8%AF%B7%E6%B1%82%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/">使用cURL的POST请求上传文件</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2022/03/30/%E4%BD%BF%E7%94%A8curl%E7%9A%84post%E8%AF%B7%E6%B1%82%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/" class="article-date">
+  <time datetime="2022-03-30T14:47:46.000Z" itemprop="datePublished">2022-03-30</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>cURL 是一个模拟http请求的命令行工具，它用于传输使用 URL 语法指定的数据。</p>
+<p>在Shell脚本中，可以使用curl来模拟post请求，向服务器端传输文件。</p>
+<p>尝试向 express+multer后端的服务器发送文件</p>
+<p>服务端地址：<a target="_blank" rel="noopener" href="https://github.com/HanHan666666/nodejsPrinter">HanHan666666&#x2F;nodejsPrinter: 使用nodejs做web服务，共享本地打印机到局域网。 (github.com)</a></p>
+<p>multer只会处理内容类型为<code>multipart/form-data</code>的表单数据</p>
+<p>所以在curl加入表单类型</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl &#x27;http://localhost:3002/upload&#x27; \</span><br><span class="line">  -X &#x27;POST&#x27; \</span><br><span class="line">  -H &#x27;Content-Type: multipart/form-data&#x27; \</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>-F &quot;file=@__FILE_PATH__&quot;</code>来在请求中加入我们需要上传的文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl &#x27;http://localhost:3002/upload&#x27; \</span><br><span class="line">  -X &#x27;POST&#x27; \</span><br><span class="line">  -H &#x27;Content-Type: multipart/form-data&#x27; \</span><br><span class="line">  -F &#x27;file=@./test.doc&#x27; \</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ tree .</span><br><span class="line">.</span><br><span class="line">├── test.doc</span><br><span class="line">└── up.sh</span><br><span class="line"></span><br><span class="line">0 directories, 2 files</span><br></pre></td></tr></table></figure>
+
+<p>测试运行</p>
+<p>服务器收到文件</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/03/image-25.png"></p>
+<p>现在只发送了一个文件，实际用起来只能发送一个文件也太鸡肋了。</p>
+<p>多加几个-F就好了</p>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-manjaro从kde桌面切换到gnome" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/27/manjaro%E4%BB%8Ekde%E6%A1%8C%E9%9D%A2%E5%88%87%E6%8D%A2%E5%88%B0gnome/">Manjaro从KDE桌面切换到Gnome</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2022/03/27/manjaro%E4%BB%8Ekde%E6%A1%8C%E9%9D%A2%E5%88%87%E6%8D%A2%E5%88%B0gnome/" class="article-date">
+  <time datetime="2022-03-27T11:15:40.000Z" itemprop="datePublished">2022-03-27</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>看够了KDE想换成Gnome 体验一下</p>
+<p>又怕搞炸了，那就同时安装两个算了</p>
+<p>先把Gnome 安装好</p>
+<p><code>sudo pacman -S gnome-extra gdm manjaro-gnome-assets manjaro-gdm-theme manjaro-settings-manager</code></p>
+<p>这个时候会遇到一个问题</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/03/image-22.png"></p>
+<p>文件冲突啦</p>
+<p>看来只能移除了</p>
+<p>sudo mv &#x2F;etc&#x2F;skel&#x2F;.xinitrc &#x2F;etc&#x2F;skel&#x2F;.xinitrc.old</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/03/Screenshot_20220327_191109.png"></p>
+<p>问题不大，好像是安装好了</p>
+<p>下一步安装显示管理器</p>
+<p><code>sudo pacman -S sddm</code></p>
+<p><code>sudo systemctl enable sddm.service</code></p>
+<p><code>sudo ln -s --force /usr/lib/systemd/system/sddm.service /etc/systemd/system/display-manager.service</code></p>
+<p>重启电脑</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/03/1648382584053.png"></p>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">next</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+    <div class="widget-wrap-info">
+        <img src="https://blog.666baby.com/wp-content/uploads/2021/12/Pasted-2.png" class="widget-wrap-info-img">
+        <div class="widget-wrap-info-author">吴晗</div>
+        <div class="widget-wrap-info-signature">业精于勤，荒于嬉。</div>
+    </div>
+    <div class="info-nav">
+        <ul class="info-nav-ul">
+        
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="home"></i>
+                    </span>
+                    <span class="info-nav-name">首页</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/archives">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="archive"></i>
+                    </span>
+                    <span class="info-nav-name">归档</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/about">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="alert-circle"></i>
+                    </span>
+                    <span class="info-nav-name">关于</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/board">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="edit-3"></i>
+                    </span>
+                    <span class="info-nav-name">留言</span>
+                </div>
+            </a>
+           </li>
+          
+        </ul>
+    </div>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 吴晗<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> | Theme by  <a href="https://github.com/FuShaoLei/hexo-theme-hiya" target="_blank">Hiya</a>
+      
+        <br>
+        <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+      <span id="busuanzi_container_site_uv">
+        访客数<span id="busuanzi_value_site_uv"></span>人次
+      </span>
+        
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/,home" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives,archive" class="mobile-nav-link">归档</a>
+  
+    <a href="/about,alert-circle" class="mobile-nav-link">关于</a>
+  
+    <a href="/board,edit-3" class="mobile-nav-link">留言</a>
+  
+</nav>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script>
+    feather.replace()
+</script>
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

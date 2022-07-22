@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>定制code-server docker镜像，并GitHub自动构建 | AmazingBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+ 
+  
+    <link rel="icon" href="https://blog.666baby.com/wp-content/uploads/2022/01/cropped-%E6%9C%AA%E6%A0%87%E9%A2%98-1-32x32.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+          <a class="main-nav-link" href="/board">留言</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-diycode-serverandgithubaction" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="name">
+      定制code-server docker镜像，并GitHub自动构建
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2022/04/18/diycode-serverandgithubaction/" class="article-date">
+  <time datetime="2022-04-18T08:44:31.000Z" itemprop="datePublished">2022-04-18</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-6.png"></p>
+<h2 id="编写Dockerfile"><a href="#编写Dockerfile" class="headerlink" title="编写Dockerfile"></a>编写Dockerfile</h2><p>对于镜像的需求主要是集成C++和Java环境。</p>
+<p>需要安装两个语言的编译器，和相应的vscode插件。</p>
+<p>由于code-server属于第三方编译的vscode版本，然而vscode的插件商店是没有开源的，所以对于cpptools这个插件只能从GitHub仓库下载后离线安装。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">FROM codercom/code-server:latest</span><br><span class="line"></span><br><span class="line"># 安装编译器</span><br><span class="line">RUN sudo apt-get update \</span><br><span class="line">    &amp;&amp; sudo apt-get install -y \</span><br><span class="line">    gcc \</span><br><span class="line">    gdb \</span><br><span class="line">    g++ \</span><br><span class="line">    python3 \</span><br><span class="line">    openjdk-17-jdk \</span><br><span class="line">    wget</span><br><span class="line"></span><br><span class="line">#安装插件</span><br><span class="line">RUN code-server --install-extension redhat.java \</span><br><span class="line">    &amp;&amp; code-server --install-extension vscjava.vscode-maven \</span><br><span class="line">    &amp;&amp; code-server --install-extension vscjava.vscode-java-dependency \</span><br><span class="line">    &amp;&amp; code-server --install-extension vscjava.vscode-java-debug \</span><br><span class="line">    &amp;&amp; code-server --install-extension vscjava.vscode-java-test \</span><br><span class="line">    &amp;&amp; code-server --install-extension formulahendry.code-runner </span><br><span class="line"></span><br><span class="line">RUN wget https://github.com/microsoft/vscode-cpptools/releases/download/v1.9.7/cpptools-linux.vsix \</span><br><span class="line">    &amp;&amp; code-server --install-extension cpptools-linux.vsix &amp;&amp; rm cpptools-linux.vsix</span><br></pre></td></tr></table></figure>
+
+<p>在保证良好的网络条件下，构建镜像</p>
+<p><code>sudo docker build -t hanplus/candjava-code-server:2.0 .</code></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-5.png"></p>
+<h2 id="测试镜像"><a href="#测试镜像" class="headerlink" title="测试镜像"></a>测试镜像</h2><p>使用<code>docker run</code>来运行生成的镜像</p>
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p><code>--name</code> 设置容器的名字</p>
+<p><code>-p</code> 端口映射，外部端口:内部端口</p>
+<p><code>-v</code> 挂载目录 冒号”:”前面的目录是宿主机目录，后面的目录是容器内目录。目的是把code-server的配置文件放到容器外面防止容器进一步变大</p>
+<p><code>-w</code> 设置运行的默认目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -it \</span><br><span class="line">--name code-server \</span><br><span class="line">-p 666:8080 \</span><br><span class="line">-v ~/.config/code-server:/home/coder/.config/code-server  \</span><br><span class="line">-v ~/.local/share/code-server:/home/coder/.local/share/code-server \</span><br><span class="line">-v ~/Personal:/home/coder/Personal \</span><br><span class="line">-w /home/coder/Personal \</span><br><span class="line">hanplus/candjava-code-server:3.0</span><br></pre></td></tr></table></figure>
+
+<p>启动容器</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-9.png"></p>
+<p>会产生权限问题，挂载目录后的所有者为root，把这三个个文件夹的所有者修改为ubuntu</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-8.png"></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-12.png"></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-11.png"></p>
+<p>运行成功</p>
+<h2 id="使用GitHub-Action自动构建镜像"><a href="#使用GitHub-Action自动构建镜像" class="headerlink" title="使用GitHub Action自动构建镜像"></a>使用GitHub Action自动构建镜像</h2><p>创建一个工作流程<a target="_blank" rel="noopener" href="https://github.com/HanHan666666/candjava_code-server/blob/aa9a2068384529a2f45a5a37d89ca4391046fb77/.github/workflows/docker-image.yml"><code>.github/workflows/docker-image.yml</code></a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">name: Docker Image CI</span><br><span class="line"></span><br><span class="line">on:</span><br><span class="line">  push:</span><br><span class="line">    branches: [ main ]</span><br><span class="line">  pull_request:</span><br><span class="line">    branches: [ main ]</span><br><span class="line"></span><br><span class="line">jobs:</span><br><span class="line"></span><br><span class="line">  build:</span><br><span class="line"></span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line"></span><br><span class="line">    steps:</span><br><span class="line">    - uses: actions/checkout@v3</span><br><span class="line">    - name: Build the Docker image</span><br><span class="line">      run: docker build -t hanplus/candjava-code-server:2.0 .</span><br><span class="line">      </span><br><span class="line">    - name: Login to Docker Hub</span><br><span class="line">      uses: docker/login-action@v1</span><br><span class="line">      with:</span><br><span class="line">          username: $&#123;&#123; secrets.DOCKER_USERNAME &#125;&#125;</span><br><span class="line">          password: $&#123;&#123; secrets.DOCKER_PASSWORD &#125;&#125;</span><br><span class="line">    - name: Build and push</span><br><span class="line">      uses: docker/build-push-action@v2</span><br><span class="line">      with:</span><br><span class="line">          push: true</span><br><span class="line">          tags: hanplus/candjava-code-server:2.0</span><br></pre></td></tr></table></figure>
+
+<p>开始构建</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-14.png"></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-17.png"></p>
+<p>目前还没有找到方法，在coder&#x2F;code-server镜像推送后自动构建本镜像，敬请期待。</p>
+<h2 id="服务器自动更新"><a href="#服务器自动更新" class="headerlink" title="服务器自动更新"></a>服务器自动更新</h2><p>仅仅需要一个简单的shell脚本，配合宝塔面板的计划任务，每晚自动检查更新。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/05/image.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#pull镜像，如果是最新镜像，输出中会包含&quot;Image is up to date&quot;，并将输出赋值到变量</span><br><span class="line">isUpdate=$(docker pull hanplus/candjava-code-server:latest)</span><br><span class="line"></span><br><span class="line">#作为日志输出</span><br><span class="line">echo $isUpdate</span><br><span class="line">strB=&quot;Image is up to date&quot;</span><br><span class="line"></span><br><span class="line">#检查字串，判断是否是最新镜像</span><br><span class="line">if [[ $isUpdate =~ $strB ]]</span><br><span class="line">then</span><br><span class="line">  echo &quot;无需更新&quot;</span><br><span class="line">  exit</span><br><span class="line">else</span><br><span class="line">  echo &quot;准备更新&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker rm -f  666baby_code-server #删除旧的容器</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#开始运行新的容器</span><br><span class="line">docker run -d \</span><br><span class="line">--name 666baby_code-server   \</span><br><span class="line">-p 666:8080 \</span><br><span class="line">-p 676:22 \</span><br><span class="line">-v /www/wwwroot/code.666baby.com/code-server.config:/home/coder/.config/code-server  \</span><br><span class="line">-v /www/wwwroot/code.666baby.com/data:/home/coder/.local/share/code-server \</span><br><span class="line">-v /www/wwwroot/code.666baby.com/Personal:/home/coder/Personal \</span><br><span class="line">-w /home/coder/Personal \</span><br><span class="line">--restart=always \</span><br><span class="line">hanplus/candjava-code-server</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/05/image-1.png"></p>
+<p>目前还没实现自动启动构建镜像在官方发布镜像的时候。</p>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "j7cOI85uofC4BmWjlUOCkqrN-gzGzoHsz",
+        app_key: "g6Bg0W8QxTnrlamF8JwPt6Rr",
+        placeholder: "留下你来过的痕迹~",
+        avatar:"robohash",
+    });
+</script>
+
+  </section>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+    <div class="widget-wrap-info">
+        <img src="https://blog.666baby.com/wp-content/uploads/2021/12/Pasted-2.png" class="widget-wrap-info-img">
+        <div class="widget-wrap-info-author">吴晗</div>
+        <div class="widget-wrap-info-signature">业精于勤，荒于嬉。</div>
+    </div>
+    <div class="info-nav">
+        <ul class="info-nav-ul">
+        
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="home"></i>
+                    </span>
+                    <span class="info-nav-name">首页</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/archives">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="archive"></i>
+                    </span>
+                    <span class="info-nav-name">归档</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/about">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="alert-circle"></i>
+                    </span>
+                    <span class="info-nav-name">关于</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/board">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="edit-3"></i>
+                    </span>
+                    <span class="info-nav-name">留言</span>
+                </div>
+            </a>
+           </li>
+          
+        </ul>
+    </div>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 吴晗<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> | Theme by  <a href="https://github.com/FuShaoLei/hexo-theme-hiya" target="_blank">Hiya</a>
+      
+        <br>
+        <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+      <span id="busuanzi_container_site_uv">
+        访客数<span id="busuanzi_value_site_uv"></span>人次
+      </span>
+        
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/,home" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives,archive" class="mobile-nav-link">归档</a>
+  
+    <a href="/about,alert-circle" class="mobile-nav-link">关于</a>
+  
+    <a href="/board,edit-3" class="mobile-nav-link">留言</a>
+  
+</nav>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script>
+    feather.replace()
+</script>
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

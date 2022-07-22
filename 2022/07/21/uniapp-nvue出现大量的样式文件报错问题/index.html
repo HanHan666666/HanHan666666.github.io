@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Uniapp NVue出现大量的样式文件报错问题 | AmazingBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+ 
+  
+    <link rel="icon" href="https://blog.666baby.com/wp-content/uploads/2022/01/cropped-%E6%9C%AA%E6%A0%87%E9%A2%98-1-32x32.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+          <a class="main-nav-link" href="/board">留言</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-uniapp-nvue出现大量的样式文件报错问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="name">
+      Uniapp NVue出现大量的样式文件报错问题
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2022/07/21/uniapp-nvue%E5%87%BA%E7%8E%B0%E5%A4%A7%E9%87%8F%E7%9A%84%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/" class="article-date">
+  <time datetime="2022-07-21T08:39:51.000Z" itemprop="datePublished">2022-07-21</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在uniapp加入地图组建的时候需要用到marker的上的气泡 callout</p>
+<p>然而使用marker的上的气泡callout又需要Nvue，于是创建了一个Nvue文件，编译的时候出现了大量的警告。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/image-24.png"></p>
+<p>由于因为新添加了一个地图页面导致了大量的报错，所以一直再找地图的问题。</p>
+<p>直到看到一个视频👇</p>
+<p>视频中提到了一个全局样式问题，app.vue中的全局样式会应用到所有文件，所以nvue页面也不例外。</p>
+<p><a target="_blank" rel="noopener" href="https://uniapp.dcloud.io/collocation/App.html#%E5%85%A8%E5%B1%80%E6%A0%B7%E5%BC%8F">uni-app 全局样式</a></p>
+<p>因为App.vue中的全局样式不符合nvue的写法，所以会导致报错。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/6Q31C0FNAOOB3EQSGK.jpg"></p>
+<p>解决方法：使用条件编译，让编译器忽略这部分代码</p>
+<p><a target="_blank" rel="noopener" href="https://uniapp.dcloud.io/tutorial/platform.html#preprocessor">跨端兼容 uni-app官网 (dcloud.io)</a></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/image-25.png"></p>
+<p>弄好之后还是不可以的话，考虑一下是不是组件库出问题了，</p>
+<p>把我自己写的CSS样式弄成局部样式，组件库CSS条件编译，问题解决。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/image-26.png"></p>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "j7cOI85uofC4BmWjlUOCkqrN-gzGzoHsz",
+        app_key: "g6Bg0W8QxTnrlamF8JwPt6Rr",
+        placeholder: "留下你来过的痕迹~",
+        avatar:"robohash",
+    });
+</script>
+
+  </section>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+    <div class="widget-wrap-info">
+        <img src="https://blog.666baby.com/wp-content/uploads/2021/12/Pasted-2.png" class="widget-wrap-info-img">
+        <div class="widget-wrap-info-author">吴晗</div>
+        <div class="widget-wrap-info-signature">业精于勤，荒于嬉。</div>
+    </div>
+    <div class="info-nav">
+        <ul class="info-nav-ul">
+        
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="home"></i>
+                    </span>
+                    <span class="info-nav-name">首页</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/archives">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="archive"></i>
+                    </span>
+                    <span class="info-nav-name">归档</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/about">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="alert-circle"></i>
+                    </span>
+                    <span class="info-nav-name">关于</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/board">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="edit-3"></i>
+                    </span>
+                    <span class="info-nav-name">留言</span>
+                </div>
+            </a>
+           </li>
+          
+        </ul>
+    </div>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 吴晗<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> | Theme by  <a href="https://github.com/FuShaoLei/hexo-theme-hiya" target="_blank">Hiya</a>
+      
+        <br>
+        <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+      <span id="busuanzi_container_site_uv">
+        访客数<span id="busuanzi_value_site_uv"></span>人次
+      </span>
+        
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/,home" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives,archive" class="mobile-nav-link">归档</a>
+  
+    <a href="/about,alert-circle" class="mobile-nav-link">关于</a>
+  
+    <a href="/board,edit-3" class="mobile-nav-link">留言</a>
+  
+</nav>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script>
+    feather.replace()
+</script>
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

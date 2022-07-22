@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>一些函数 C/C++ | AmazingBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+ 
+  
+    <link rel="icon" href="https://blog.666baby.com/wp-content/uploads/2022/01/cropped-%E6%9C%AA%E6%A0%87%E9%A2%98-1-32x32.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+          <a class="main-nav-link" href="/board">留言</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-一些函数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="name">
+      一些函数 C/C++
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/07/18/%E4%B8%80%E4%BA%9B%E5%87%BD%E6%95%B0/" class="article-date">
+  <time datetime="2021-07-18T10:01:53.000Z" itemprop="datePublished">2021-07-18</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="memcpy"><a href="#memcpy" class="headerlink" title="memcpy"></a>memcpy</h3><p>memcpy 函数原型如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> *<span class="title">memcpy</span><span class="params">(<span class="type">void</span> *dest, <span class="type">void</span> *src, <span class="type">unsigned</span> <span class="type">int</span> count)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="功能："><a href="#功能：" class="headerlink" title="功能："></a>功能：</h4><p>从源 src 所指的内存地址的起始位置开始拷贝 n 个字节到目标 dest 所指的内存地址的起始位置中。 使用 memcpy 函数要包含头文件 string.h。 示例 1：从数组 a 复制到 k 个元素到数组 b</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">memcpy</span>(b,a,<span class="built_in">sizeof</span>(<span class="type">int</span>)*k); </span><br></pre></td></tr></table></figure>
+
+<p>示例 2：若数组 a 和 b 都是浮点型的，复制时要写成：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">memcpy</span>(b,a,<span class="built_in">sizeof</span>(<span class="type">double</span>)*k);</span><br></pre></td></tr></table></figure>
+
+<p>示例 3：如果需要把数组 a 全部复制到数组 b 中，可以写成：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">memcpy</span>(b,a,<span class="built_in">sizeof</span>(a));</span><br></pre></td></tr></table></figure>
+
+<h3 id="memset"><a href="#memset" class="headerlink" title="memset"></a>memset</h3><p><code>`memset(a,0,sizeof(a))`</code> 的作用是把数组 a 清零它也在 string.h中定义。 使用 memset 比 for 循环更方便、快捷。 memset 函数原型如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> *<span class="title">memset</span><span class="params">(<span class="type">void</span> *buffer, <span class="type">char</span> c, <span class="type">int</span> count)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>功能：把 buffer 所指内存区域的前 count 个字节设置成字符 c 第三个参数指的是字节的个数，返回指向 buffer 的指针 在程序中需包含头文件：#include&lt;string.h&gt; 由 memset 函数的头文件可以知道，其主要是对字符数组进行设置， 当然也可以对数组进行初始赋值（一般是 0,-1）。</p>
+<h3 id="atoi"><a href="#atoi" class="headerlink" title="atoi"></a>atoi</h3><p><code>`int atoi(char *s)`</code> 它表示将字符串 s 中的内容转换成一个整型数返回，如字符串“1234”,则函数返 回值是 1234。</p>
+<h3 id="itoa"><a href="#itoa" class="headerlink" title="itoa"></a>itoa</h3><p>在 stdlib.h 中有一个函数 itoa，它的函数原型如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">itoa</span><span class="params">(<span class="type">int</span> value,<span class="type">char</span> *string,<span class="type">int</span> radix)</span> </span></span><br></pre></td></tr></table></figure>
+
+<p>它表示将整数 value 转换成字符串存入 string, radix 为转换时所用基数(保 存到字符串中的数据的进制基数 2 8 10 16)，返回指向转换后的字符串的指针 。 例如，<code>`itoa(32,string,10)`</code>是将 32 变成十进制数一个字符串“32”，并返回 指向这个字符串的指针；itoa(32,string,16)是将 32 变成十进制数一个字符串 “20”，并返回指向这个字符串的指针。</p>
+<h3 id="sprintf"><a href="#sprintf" class="headerlink" title="sprintf"></a>sprintf</h3><p>sprintf是个变参函数，定义如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">sprintf</span><span class="params">( <span class="type">char</span> *buffer, <span class="type">const</span> <span class="type">char</span> *format [, argument] ... )</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>除了前两个参数类型固定外，后面可以接任意多个参数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sprintf</span>(buf,<span class="string">&quot;%d%d%d%d%d&quot;</span>,abc,de,x,y,z);</span><br></pre></td></tr></table></figure>
+
+<p>语句的功能是将整数abcdexyx打印成字符串存储在串buff中。 可以直接接受其返回值：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> len=<span class="built_in">sprintf</span>(buf, <span class="string">&quot;%d%d%d%d%d&quot;</span>, abc, de, x, y, z);</span><br></pre></td></tr></table></figure>
+
+<h3 id="strchr"><a href="#strchr" class="headerlink" title="strchr"></a>strchr</h3><p>strchr函数定义如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">strchr</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *s,<span class="type">char</span> c)</span></span>;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能：</strong>查找字符串s中首次出现字符c的位置。它的返回值是返回首次出现c的位置的指针，如果s中不存在c则返回NULL。包含此函数的头文件是string.h。</p>
+<p>例如，本程序的if语句中strchr(s, buf[i])的功能是查找字符串s中首次出字符buf[i]的位置。如果strchr(s, buf[i])&#x3D;&#x3D;NULL，则表明字符串s中没有buf[i]的字符。</p>
+<h3 id="sprintf函数、printf函数、fprintf函数的区别"><a href="#sprintf函数、printf函数、fprintf函数的区别" class="headerlink" title="sprintf函数、printf函数、fprintf函数的区别"></a>sprintf函数、printf函数、fprintf函数的区别</h3><p>printf输出到屏幕，fprintf输出到文件，而sprintf输出到字符串。需要注意是应该保证写入的字符串有足够的空间。</p>
+<p><strong>提示：</strong>C语言中的字符串是’\0’结尾的字符数组，可以用strlen(s)返回字符串s中结束标记之前的字符个数。字符串中的各个字符是：s[0],s[1],…,s[strlen(s)-1]。</p>
+<p><strong>提示：</strong>由于字符串的本质是数组，它也不是“一等公民”，只能用strcpy(a,b)、strcmp(a,b)、strcat(a,b)来执行“赋值”、“比较”和“连接”操作。而不能用=、=&#x3D;、&lt;&#x3D;、+等运算符。上述函数都在string.h中声明。</p>
+<p><strong>提示：</strong>但编译选项-Wall编译程序时，会给出很多（但不是所有）警告信息，以帮助程序员查错。但并不能解决所有的问题：有些“错误”程序是合法的，只是这些动作不是你所期望的。</p>
+<p><strong>C****语言中的gets(s)存在缓冲区溢出漏洞，不推荐使用。</strong></p>
+<p>代替者fgets?教程<a target="_blank" rel="noopener" href="http://c语言中的gets(s)存在缓冲区溢出漏洞,不推荐使用./"></a><a target="_blank" rel="noopener" href="http://c语言中的gets(s)存在缓冲区溢出漏洞,不推荐使用/">http://C语言中的gets(s)存在缓冲区溢出漏洞，不推荐使用</a>。</p>
+<h1 id="字母操作"><a href="#字母操作" class="headerlink" title="字母操作"></a>字母操作</h1><h3 id="isalpha"><a href="#isalpha" class="headerlink" title="isalpha"></a><strong>isalpha</strong></h3><p><strong>原型：</strong>int isalpha（int ch）</p>
+<p><strong>用法：</strong>头文件加入#include <cctype>(C语言使用&lt;ctype.h&gt;)</p>
+<p><strong>功能：</strong>判断字符ch是否为英文字母，当ch为英文字母a-z或A-Z时，在标准c中相当于使用“isupper(ch)islower(ch)”做测试，返回非零值(不一定是1)，否则返回零。</p>
+<h3 id="isupper"><a href="#isupper" class="headerlink" title="isupper"></a><strong>isupper</strong></h3><p><strong>原型：</strong>extern int isupper(int c);</p>
+<p><strong>头文件：</strong><cctype>( C语言使用&lt;ctype.h&gt;)</p>
+<p><strong>功能：</strong>判断字符c是否为大写英文字母</p>
+<p><strong>说明：</strong>当参数c为大写英文字母(A-Z)时，返回非零值，否则返回零。</p>
+<p><strong>附加说明：</strong> 此为宏定义，非真正函数。</p>
+<h3 id="islower"><a href="#islower" class="headerlink" title="islower"></a><strong>islower</strong></h3><p><strong>头文件：</strong>#include<cctype>( C语言使用&lt;ctype.h&gt;)</p>
+<p><strong>用法：</strong>int islower(int c)</p>
+<p><strong>函数说明：</strong>检查参数c是否为小写英文字母。</p>
+<p><strong>返回值：</strong>若参数c为小写英文字母，则返回TRUE，否则返回NULL(0)。</p>
+<p><strong>附加说明：</strong>此为宏定义，非真正函数。</p>
+<h3 id="toupper"><a href="#toupper" class="headerlink" title="toupper"></a><strong>toupper</strong></h3><p><strong>原型：</strong>extern int toupper(int c);</p>
+<p><strong>用法：</strong>#include &lt;ctype.h&gt;</p>
+<p><strong>功能：</strong>将字符c转换为大写英文字母</p>
+<p><strong>说明：</strong>如果c为小写英文字母，则返回对应的大写字母；否则返回原来的值。</p>
+<h3 id="tolower"><a href="#tolower" class="headerlink" title="tolower"></a><strong>tolower</strong></h3><p><strong>功 能:</strong> 把字符转换成小写字母,非字母字符不做出处理</p>
+<p><strong>头文件：</strong>在VC6.0可以是ctype.h或者stdlib.h，常用ctype.h</p>
+<p><strong>用 法:</strong> int tolower(int c);</p>
+<p><strong>说明：</strong>如果c为大写英文字母，则返回对应的小写字母；否则返回原来的值。</p>
+<h3 id="isdigit"><a href="#isdigit" class="headerlink" title="isdigit"></a><strong>isdigit</strong></h3><p><strong>原型：</strong>extern int isdigit(char c);</p>
+<p><strong>用法：</strong>#include &lt;ctype.h&gt;</p>
+<p><strong>功能：</strong>判断字符c是否为数字</p>
+<p><strong>说明：</strong>当c为数字0-9时，返回非零值，否则返回零。</p>
+<p><strong>附加说明</strong>:此为宏定义，非真正函数。</p>
+<h3 id="isprint"><a href="#isprint" class="headerlink" title="isprint"></a><strong>isprint</strong></h3><p><strong>原型：</strong>extern int isprint(char c);</p>
+<p><strong>用法：</strong>#include &lt;ctype.h&gt;</p>
+<p><strong>功能：</strong>判断字符c是否为可打印字符（含空格）</p>
+<p><strong>说明：</strong>当c为可打印字符（0x20-0x7e）时，返回非零值，否则返回零。</p>
+<p><strong>附加说明：</strong>此为宏定义，非真正函数。</p>
+<p><strong>提示：</strong>头文件ctype.h中定义的isalpha、isdigit、isprint等工具可以用来判断字符的属性，而toupper、tolower等工具可以用来转换大小写。</p>
+<p><strong>说明：</strong></p>
+<p>（1）isalpha(c)用来检查c是否为字母，如果是字母，则返回1；否则返回0。</p>
+<p>（2）isdigit(c)用来检查c是否为数字（0～9），如果是数字，则返回1；否则返回0。</p>
+<p>（3）isprint(c)用来检查c是否为可打印字符（不包括空格），其ASCII码值在0x21～0x7e之间，如果是可打印字符，则返回1；否则返回0。</p>
+<p>（4）toupper(c)用来将c字符转换为大写字母，返回c对应的大写字母。</p>
+<p>（5）tolower(c)用来将c字符转换为小写字母，返回c对应的小写字母。</p>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "j7cOI85uofC4BmWjlUOCkqrN-gzGzoHsz",
+        app_key: "g6Bg0W8QxTnrlamF8JwPt6Rr",
+        placeholder: "留下你来过的痕迹~",
+        avatar:"robohash",
+    });
+</script>
+
+  </section>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+    <div class="widget-wrap-info">
+        <img src="https://blog.666baby.com/wp-content/uploads/2021/12/Pasted-2.png" class="widget-wrap-info-img">
+        <div class="widget-wrap-info-author">吴晗</div>
+        <div class="widget-wrap-info-signature">业精于勤，荒于嬉。</div>
+    </div>
+    <div class="info-nav">
+        <ul class="info-nav-ul">
+        
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="home"></i>
+                    </span>
+                    <span class="info-nav-name">首页</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/archives">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="archive"></i>
+                    </span>
+                    <span class="info-nav-name">归档</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/about">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="alert-circle"></i>
+                    </span>
+                    <span class="info-nav-name">关于</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/board">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="edit-3"></i>
+                    </span>
+                    <span class="info-nav-name">留言</span>
+                </div>
+            </a>
+           </li>
+          
+        </ul>
+    </div>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 吴晗<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> | Theme by  <a href="https://github.com/FuShaoLei/hexo-theme-hiya" target="_blank">Hiya</a>
+      
+        <br>
+        <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+      <span id="busuanzi_container_site_uv">
+        访客数<span id="busuanzi_value_site_uv"></span>人次
+      </span>
+        
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/,home" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives,archive" class="mobile-nav-link">归档</a>
+  
+    <a href="/about,alert-circle" class="mobile-nav-link">关于</a>
+  
+    <a href="/board,edit-3" class="mobile-nav-link">留言</a>
+  
+</nav>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script>
+    feather.replace()
+</script>
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

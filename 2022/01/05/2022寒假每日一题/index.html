@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>2022寒假每日一题 | AmazingBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+ 
+  
+    <link rel="icon" href="https://blog.666baby.com/wp-content/uploads/2022/01/cropped-%E6%9C%AA%E6%A0%87%E9%A2%98-1-32x32.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+          <a class="main-nav-link" href="/board">留言</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2022寒假每日一题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="name">
+      2022寒假每日一题
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2022/01/05/2022%E5%AF%92%E5%81%87%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" class="article-date">
+  <time datetime="2022-01-05T14:30:23.000Z" itemprop="datePublished">2022-01-05</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="2022-x2F-1-x2F-25"><a href="#2022-x2F-1-x2F-25" class="headerlink" title="2022&#x2F;1&#x2F;25"></a>2022&#x2F;1&#x2F;25</h1><h3 id="797-差分-AcWing题库"><a href="#797-差分-AcWing题库" class="headerlink" title="797. 差分 - AcWing题库"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/799/">797. 差分 - AcWing题库</a></h3><p>输入一个长度为 $n$ 的整数序列。</p>
+<p>接下来输入 $m$ 个操作，每个操作包含三个整数 $l, r, c$，表示将序列中 $[l, r]$ 之间的每个数加上 $c$。</p>
+<p>请你输出进行完所有操作后的序列。</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含两个整数 $n$ 和 $m$。</p>
+<p>第二行包含 $n$ 个整数，表示整数序列。</p>
+<p>接下来 $m$ 行，每行包含三个整数 $l，r，c$，表示一个操作。</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>共一行，包含 $n$ 个整数，表示最终序列。</p>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>$1 \le n,m \le 100000$,<br>$1 \le l \le r \le n$,<br>$-1000 \le c \le 1000$,<br>$-1000 \le $整数序列中元素的值$ \le 1000$</p>
+<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">6 3</span><br><span class="line">1 2 2 1 2 1</span><br><span class="line">1 3 1</span><br><span class="line">3 5 1</span><br><span class="line">1 6 1</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3 4 5 3 4 2</span><br></pre></td></tr></table></figure>
+
+<h4 id="详细题解"><a href="#详细题解" class="headerlink" title="详细题解"></a>详细题解</h4><p><a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/26588/">AcWing 797. 差分 【c++详细题解】 - AcWing</a></p>
+<h4 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int N = 1e6 + 1;</span><br><span class="line">int num[20];</span><br><span class="line">int k[20];</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n, m;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    </span><br><span class="line">    for (int i = 1; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        scanf(&quot;%d&quot;, &amp;num[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for (int i = 1; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        k[i] = num[i] - num[i - 1];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    for (int i = 0; i &lt; m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        int l, r, c;</span><br><span class="line">        scanf(&quot;%d%d%d&quot;, &amp;l, &amp;r, &amp;c);</span><br><span class="line">        </span><br><span class="line">        k[l] += c;</span><br><span class="line">        k[r + 1] -= c;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    for (int i = 1; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        num[i] = k[i] + num[i - 1];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">  </span><br><span class="line">    for (int i = 1; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;%d &quot;, num[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2041-干草堆-AcWing题库"><a href="#2041-干草堆-AcWing题库" class="headerlink" title="2041. 干草堆 - AcWing题库"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/2043/">2041. 干草堆 - AcWing题库</a></h3><p>贝茜对她最近在农场周围造成的一切恶作剧感到抱歉，她同意帮助农夫约翰把一批新到的干草捆堆起来。</p>
+<p>开始时，共有 $N$ 个空干草堆，编号 $1 \sim N$。</p>
+<p>约翰给贝茜下达了 $K$ 个指令，每条指令的格式为 <code>A B</code>，这意味着贝茜要在 $A..B$ 范围内的每个干草堆的顶部添加一个新的干草捆。</p>
+<p>例如，如果贝茜收到指令 <code>10 13</code>，则她应在干草堆 $10,11,12,13$ 中各添加一个干草捆。</p>
+<p>在贝茜完成了所有指令后，约翰想知道 $N$ 个干草堆的中值高度——也就是说，如果干草堆按照高度从小到大排列，位于中间的干草堆的高度。</p>
+<p>方便起见，$N$ 一定是奇数，所以中间堆是唯一的。</p>
+<p>请帮助贝茜确定约翰问题的答案。</p>
+<h4 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含 $N$ 和 $K$。</p>
+<p>接下来 $K$ 行，每行包含两个整数 $A,B$，用来描述一个指令。</p>
+<h4 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出完成所有指令后，$N$ 个干草堆的中值高度。</p>
+<h4 id="数据范围-1"><a href="#数据范围-1" class="headerlink" title="数据范围"></a>数据范围</h4><p>$1 \le N \le 10^6$,<br>$1 \le K \le 25000$,<br>$1 \le A \le B \le N$</p>
+<h4 id="输入样例：-1"><a href="#输入样例：-1" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">7 4</span><br><span class="line">5 5</span><br><span class="line">2 4</span><br><span class="line">4 6</span><br><span class="line">3 5</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例：-1"><a href="#输出样例：-1" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
+
+<h4 id="样例解释"><a href="#样例解释" class="headerlink" title="样例解释"></a>样例解释</h4><p>贝茜完成所有指令后，各堆高度为 $0,1,2,3,3,1,0$。</p>
+<p>将各高度从小到大排序后，得到 $0,0,1,1,2,3,3$，位于中间的是 $1$。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int N = 1e6 + 1;</span><br><span class="line">int num[10];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n, k;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line"></span><br><span class="line">    //构建差分数组</span><br><span class="line">    for (int i = 0; i &lt; k; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        int a, b;</span><br><span class="line">        scanf(&quot;%d%d&quot;, &amp;a, &amp;b);</span><br><span class="line">        num[a]++;</span><br><span class="line">        num[b + 1]--;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //还原数组</span><br><span class="line">    for (int i = 1; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        num[i] += num[i - 1];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    sort(num, num + n + 1);</span><br><span class="line"></span><br><span class="line">    //STL的nth_element有效提升速度</span><br><span class="line">    // nth_element(num, num + n / 2 + 1, num + n + 1);</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    cout &lt;&lt; num[n / 2 + 1] &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2022-x2F-1-x2F-23"><a href="#2022-x2F-1-x2F-23" class="headerlink" title="2022&#x2F;1&#x2F;23"></a>2022&#x2F;1&#x2F;23</h1><h3 id="1904-奶牛慢跑-AcWing题库"><a href="#1904-奶牛慢跑-AcWing题库" class="headerlink" title="1904. 奶牛慢跑 - AcWing题库"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1906/">1904. 奶牛慢跑 - AcWing题库</a></h3><p>奶牛们又出去锻炼蹄子去了！</p>
+<p>有 NN 头奶牛在无限长的单行道上慢跑，且跑步方向为坐标值增大的方向。</p>
+<p>每头奶牛在跑道上开始奔跑的位置互不相同，一些奶牛的奔跑速度可能相同，也可能不同。</p>
+<p>由于跑道是单行道，十分狭窄，奶牛们无法相互超越。</p>
+<p>当一头速度很快的牛追上另一头牛时，她必须减速至与另一头牛速度相同以免发生碰撞，并成为同一跑步小组的一员。此时，两头牛可以视为在同一点上。</p>
+<p>最终，再也没有奶牛会撞到（追上）其他奶牛了。</p>
+<p>约翰想知道在这种情况下，会剩下多少个跑步小组。</p>
+<h4 id="输入格式-2"><a href="#输入格式-2" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含整数 N.</p>
+<p>接下来 N 行，每行包含一头奶牛的初始位置和跑步速度。</p>
+<p>所有奶牛的初始位置各不相同，且是按照递增顺序给出的。</p>
+<h4 id="输出格式-2"><a href="#输出格式-2" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出一个整数，表示最终剩下的小组数量。</p>
+<h4 id="数据范围-2"><a href="#数据范围-2" class="headerlink" title="数据范围"></a>数据范围</h4><p>$1≤N≤10^5$,<br>初始位置范围$ [0,10^9]$，<br>跑步速度范围 $[1,10^9]$</p>
+<h4 id="输入样例：-2"><a href="#输入样例：-2" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">0 1</span><br><span class="line">1 2</span><br><span class="line">2 3</span><br><span class="line">3 2</span><br><span class="line">6 1</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例：-2"><a href="#输出样例：-2" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<h4 id="代码与题解"><a href="#代码与题解" class="headerlink" title="代码与题解"></a>代码与题解</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int N = 1e6;</span><br><span class="line">int num[10];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    int t;</span><br><span class="line">    for (int i = 0; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; t &gt;&gt; num[i];</span><br><span class="line">    &#125;</span><br><span class="line">    int res = 0;</span><br><span class="line">    int m = num[n - 1];//m用于记录上一个小组的速度</span><br><span class="line">    for (int i = n - 1; i &gt;= 0; i--)//倒序遍历</span><br><span class="line">    &#123;</span><br><span class="line">        if (num[i] &lt;= m)</span><br><span class="line">        &#123;</span><br><span class="line">            res++;//主要在于会有小组与小组合并的情况</span><br><span class="line">            //如果下一个小组的速度大于上一个小组的速度就会合并</span><br><span class="line">            //每一组的开头牛的速度就是该小组速度</span><br><span class="line">            m = num[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; res  &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2022-x2F-1-x2F-20"><a href="#2022-x2F-1-x2F-20" class="headerlink" title="2022&#x2F;1&#x2F;20"></a>2022&#x2F;1&#x2F;20</h1><h3 id="1922-懒惰的牛-AcWing题库"><a href="#1922-懒惰的牛-AcWing题库" class="headerlink" title="1922. 懒惰的牛 - AcWing题库"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1924/">1922. 懒惰的牛 - AcWing题库</a></h3><p>这是一个炎热的夏日。</p>
+<p>懒洋洋的奶牛贝茜想将自己放置在田野中的某个位置，以便可以在短距离内尽可能多地吃到美味的草。</p>
+<p>贝茜所在的田野中共有 N 片草地，我们可以将田野视作一个一维数轴。</p>
+<p>第 i 片草地中包含 gi 单位的青草，位置坐标为 xi。</p>
+<p>不同草地的位置不同。</p>
+<p>贝茜想选取田野中的某个点作为她的初始位置（可能是某片草地所在的点）。</p>
+<p>只有一片草地与她的初始位置的距离不超过 KK 时，贝茜才能吃到那片草地上的草。</p>
+<p>如果贝茜选择最佳初始位置，请确定她可以吃到的青草最大数量。</p>
+<h4 id="输入格式-3"><a href="#输入格式-3" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含两个整数 N 和 K。</p>
+<p>接下来 N 行，每行描述一片草地，包含两个整数 $g_i$ 和 $x_i$。</p>
+<h4 id="输出格式-3"><a href="#输出格式-3" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出如果贝茜选择最佳初始位置，则她可以吃到的青草最大数量。</p>
+<h4 id="数据范围-3"><a href="#数据范围-3" class="headerlink" title="数据范围"></a>数据范围</h4><p>$1≤N≤10^5,<br>1≤g_i≤10000,<br>0≤x_i≤106,<br>1≤K≤2×10^6$</p>
+<h4 id="输入样例：-3"><a href="#输入样例：-3" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4 3</span><br><span class="line">4 7</span><br><span class="line">10 15</span><br><span class="line">2 2</span><br><span class="line">5 1</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例：-3"><a href="#输出样例：-3" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">11</span><br></pre></td></tr></table></figure>
+
+<h4 id="样例解释-1"><a href="#样例解释-1" class="headerlink" title="样例解释"></a>样例解释</h4><p>最佳初始位置选择为 x&#x3D;4x&#x3D;4，可以吃到 x&#x3D;1,x&#x3D;2,x&#x3D;7处的青草。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int N = 1e6 * 5 + 2;</span><br><span class="line">int num[N];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n, k;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    int ms = INT_MIN;</span><br><span class="line">    int g, x;</span><br><span class="line">    for (int i = 0; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; g &gt;&gt; x;</span><br><span class="line">        num[x] = g;</span><br><span class="line">        ms = max(x, ms);</span><br><span class="line">    &#125;</span><br><span class="line">    long long flag = 0;</span><br><span class="line">    k = 2 * k + 1;</span><br><span class="line">    long long ans = 0;</span><br><span class="line">    for (int i = 0; i &lt; k; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        // qmax[0] += num[i];</span><br><span class="line">        ans += num[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (k  &gt; ms)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    for (int i = k; i &lt;= ms; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ans = ans + num[i] - num[i - k - 1];</span><br><span class="line">        // cout &lt;&lt; &quot;ans = &quot; &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">        flag = max(ans, flag);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // int ans = 0;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; flag &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2022-x2F-1-x2F-16"><a href="#2022-x2F-1-x2F-16" class="headerlink" title="2022&#x2F;1&#x2F;16"></a>2022&#x2F;1&#x2F;16</h1><h3 id="1945-奶牛棒球-AcWing题库"><a href="#1945-奶牛棒球-AcWing题库" class="headerlink" title="1945. 奶牛棒球 - AcWing题库"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1947/">1945. 奶牛棒球 - AcWing题库</a></h3><p>农夫约翰的 N 头奶牛排成一排，每头奶牛都位于数轴中的不同位置上。</p>
+<p>它们正在练习投掷棒球。</p>
+<p>农夫约翰观看时，观察到一组三头牛 $(X,Y,Z)$ 完成了两次成功的投掷。</p>
+<p>牛 X 把球扔给她右边的牛 Y，然后牛 Y 把球扔给她右边的牛 Z。</p>
+<p>约翰指出，第二次投掷的距离不少于第一次投掷的距离，也不超过第一次投掷的距离的两倍。</p>
+<p>请计算共有多少组牛 $(X,Y,Z)$ 可能是约翰所看到的。</p>
+<h4 id="输入格式-4"><a href="#输入格式-4" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含整数 N。</p>
+<p>接下来 N 行，每行描述一头牛的位置。</p>
+<h4 id="输出格式-4"><a href="#输出格式-4" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出奶牛三元组 $(X,Y,Z)$ 的数量。</p>
+<p>$(X,Y,Z)$ 需满足，Y 在 X 的右边，Z 在 Y 的右边，并且从 Y 到 Z 的距离在 $[XY,2XY]$ 之间，其中 XY 表示从 X 到 Y 的距离。</p>
+<h4 id="数据范围-4"><a href="#数据范围-4" class="headerlink" title="数据范围"></a>数据范围</h4><p>$3≤N≤1000$,<br>奶牛所在的位置坐标范围 $[0,10^8]$。</p>
+<h4 id="输入样例：-4"><a href="#输入样例：-4" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">3</span><br><span class="line">1</span><br><span class="line">10</span><br><span class="line">7</span><br><span class="line">4</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例：-4"><a href="#输出样例：-4" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure>
+
+<h4 id="样例解释-2"><a href="#样例解释-2" class="headerlink" title="样例解释"></a>样例解释</h4><p>四个可能的奶牛三元组为：$1−3−7,1−4−7,4−7−10,1−4−10$。</p>
+<h4 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h4><p>这个题很简单，不用考虑那么多，虽然题目乍一看坐标数量非常的多，但是直接暴力查找不会超时。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int N = 1e8 + 1;</span><br><span class="line">int nu[N];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    //使用动态数组vector会超时</span><br><span class="line">    // vector&lt;int&gt; nu;</span><br><span class="line">    for (int i = 0; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        // int t;</span><br><span class="line">        // cin &gt;&gt; t;</span><br><span class="line">        // nu.push_back(t);</span><br><span class="line">        cin &gt;&gt; nu[i];</span><br><span class="line">    &#125;</span><br><span class="line">    int flag = 0;</span><br><span class="line">    // sort(nu.begin(), nu.end());</span><br><span class="line">    sort(nu, nu + n);</span><br><span class="line">    for (int i = 0; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        for (int j = i + 1; j &lt; n; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            for (int k = j + 1; k &lt; n; k++)</span><br><span class="line">            &#123;</span><br><span class="line">                int xy = nu[j] - nu[i];</span><br><span class="line">                int yz = nu[k] - nu[j];</span><br><span class="line">                if (yz &gt;= xy &amp;&amp; yz &lt;= 2 * xy)</span><br><span class="line">                &#123;</span><br><span class="line">                    flag++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; flag &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2022-x2F-1-x2F-12"><a href="#2022-x2F-1-x2F-12" class="headerlink" title="2022&#x2F;1&#x2F;12"></a>2022&#x2F;1&#x2F;12</h1><h3 id="AcWing-1969-品种邻近"><a href="#AcWing-1969-品种邻近" class="headerlink" title="AcWing 1969. 品种邻近"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/1971/">AcWing 1969. 品种邻近</a></h3><p>农夫约翰的 N 头奶牛排成一排，每头奶牛都用其品种 ID 进行描述。</p>
+<p>如果两头相同品种的牛靠得太近，它们就会吵架。</p>
+<p>具体的说，如果同一品种的两头奶牛在队列中的位置相差不超过 K，我们就称这是一对拥挤的牛。</p>
+<p>请计算品种 ID 最大的拥挤奶牛对的品种 ID。</p>
+<h4 id="输入格式-5"><a href="#输入格式-5" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含两个整数 N 和 K。</p>
+<p>接下来 N 行，每行包含一个整数表示队列中一头奶牛的品种 ID。</p>
+<h4 id="输出格式-5"><a href="#输出格式-5" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出品种 ID 最大的拥挤奶牛对的品种 ID。</p>
+<p>如果不存在拥挤奶牛队，则输出 −1。</p>
+<h4 id="数据范围-5"><a href="#数据范围-5" class="headerlink" title="数据范围"></a>数据范围</h4><p>$1≤N≤50000$,<br>$1≤K&lt;N$,<br>品种 ID 范围$ [0,106]$。</p>
+<h4 id="输入样例：-5"><a href="#输入样例：-5" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">6 3</span><br><span class="line">7</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例：-5"><a href="#输出样例：-5" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure>
+
+<h4 id="样例解释-3"><a href="#样例解释-3" class="headerlink" title="样例解释"></a>样例解释</h4><p>一对品种 ID 为 3 的奶牛以及一对品种 ID 为 4 的奶牛属于拥挤奶牛对。</p>
+<p>所以，最大拥挤奶牛对的品种 ID 为 4。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    long long n, k;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    vector&lt;long long&gt; id;</span><br><span class="line">    map&lt;long long, long long&gt; mp;</span><br><span class="line">    for (long long i = 0; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        long long t;</span><br><span class="line">        cin &gt;&gt; t;</span><br><span class="line">        id.push_back(t);</span><br><span class="line">    &#125;</span><br><span class="line">    long long id2 = -1;//初始值为-1，如果没有直接输出-1</span><br><span class="line">    for (long long i = 0; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        //如果mp中不包含这个ID，那么说明这个牛左边没有同ID的牛</span><br><span class="line">        //赋值，而且不做距离判断</span><br><span class="line">        if (!mp.count(id[i]))</span><br><span class="line">        &#123;</span><br><span class="line">            mp[id[i]] = i;</span><br><span class="line">            continue;</span><br><span class="line">        &#125;</span><br><span class="line">        //判断同ID的牛的距离</span><br><span class="line">        if (i - mp[id[i]] &lt;= k)</span><br><span class="line">        &#123;</span><br><span class="line">            id2 = max(id2, id[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        mp[id[i]] = i; //更新为同ID牛的最后一个的位置</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; id2 &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2022-x2F-1-x2F-11"><a href="#2022-x2F-1-x2F-11" class="headerlink" title="2022&#x2F;1&#x2F;11"></a>2022&#x2F;1&#x2F;11</h1><h3 id="1978-奶牛过马路-AcWing题库"><a href="#1978-奶牛过马路-AcWing题库" class="headerlink" title="1978. 奶牛过马路 - AcWing题库"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1980/">1978. 奶牛过马路 - AcWing题库</a></h3><p>每天，农夫约翰的 NN 头奶牛都会穿过农场中间的马路。</p>
+<p>考虑约翰的农场在二维平面的地图，马路沿水平方向延伸，马路的一侧由直线 y&#x3D;0y&#x3D;0 描述，另一侧由直线 y&#x3D;1y&#x3D;1 描述。</p>
+<p>奶牛 ii 从马路一侧的位置 (ai,0)(ai,0) 沿直线过马路到达另一侧的位置 (bi,1)(bi,1)。</p>
+<p>所有 aiai 互不相同，所有 bibi 互不相同。</p>
+<p>尽管他的奶牛们行动敏捷，他还是担心行动路径交叉的两头奶牛在过马路时发生碰撞。</p>
+<p>约翰认为，如果一头奶牛的行动路径没有跟其他任何奶牛的行动路径相交，则该奶牛是安全的。</p>
+<p>请帮助约翰计算安全奶牛的数量。</p>
+<h4 id="输入格式-6"><a href="#输入格式-6" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含整数 NN。</p>
+<p>接下来 NN 行，每行包含两个整数 ai,biai,bi，用来描述一头牛的行动路径。</p>
+<h4 id="输出格式-6"><a href="#输出格式-6" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出安全奶牛的数量。</p>
+<h4 id="数据范围-6"><a href="#数据范围-6" class="headerlink" title="数据范围"></a>数据范围</h4><p>$1≤N≤10^5$,<br>$−10^6≤a_i,b_i≤10^6$</p>
+<h4 id="输入样例：-6"><a href="#输入样例：-6" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">-3 4</span><br><span class="line">7 8</span><br><span class="line">10 16</span><br><span class="line">3 9</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例：-6"><a href="#输出样例：-6" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<h4 id="样例解释-4"><a href="#样例解释-4" class="headerlink" title="样例解释"></a>样例解释</h4><p>第一头牛和第三头牛的行动路线不与其他奶牛的路线相交。</p>
+<p>第二头牛和第四头牛的行动路线相交。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int N = 1e5 + 1;</span><br><span class="line">pair&lt;int, int&gt; p[N];</span><br><span class="line">int maxs[N], mins[N];</span><br><span class="line"></span><br><span class="line">bool cmp(pair&lt;int, int&gt; a, pair&lt;int, int&gt; b)</span><br><span class="line">&#123;</span><br><span class="line">    return a.first &gt; b.first;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">    for (int i = 1; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        // cin &gt;&gt; p[i].first &gt;&gt; p[i].second;</span><br><span class="line">        scanf(&quot;%d%d&quot;, &amp;p[i].first, &amp;p[i].second);</span><br><span class="line">    &#125;</span><br><span class="line">    sort(p + 1, p + n + 1); //给p[i].first排序</span><br><span class="line"></span><br><span class="line">    int flag = 0;</span><br><span class="line"></span><br><span class="line">    maxs[0] = INT_MIN;</span><br><span class="line">    mins[n + 1] = INT_MAX;</span><br><span class="line">    </span><br><span class="line">    //前缀最大值</span><br><span class="line">    for (int i = 1; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        maxs[i] = max(maxs[i - 1], p[i].second);</span><br><span class="line">    &#125;</span><br><span class="line">    //后缀最小值</span><br><span class="line">    for (int i = n; i; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        mins[i] = min(mins[i + 1], p[i].second);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for (int i = 1; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if (p[i].second &gt; maxs[i - 1] &amp;&amp; p[i].second &lt; mins[i + 1])</span><br><span class="line">            flag++;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; flag &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="2022-x2F-1-x2F-10"><a href="#2022-x2F-1-x2F-10" class="headerlink" title="2022&#x2F;1&#x2F;10"></a>2022&#x2F;1&#x2F;10</h1><h3 id="1987-粉刷栅栏-AcWing题库"><a href="#1987-粉刷栅栏-AcWing题库" class="headerlink" title="1987. 粉刷栅栏 - AcWing题库"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1989/">1987. 粉刷栅栏 - AcWing题库</a></h3><p>农夫约翰发明了一种绝妙的方法来粉刷牛棚旁边的长栅栏（把栅栏想象成一维的数轴）。</p>
+<p>他只需要在他最喜欢的奶牛贝茜身上挂一个刷子，然后在一旁悠闲的喝凉水就行了。</p>
+<p>贝茜沿着栅栏来回走动时，会将她走过的栅栏部分涂上油漆。</p>
+<p>贝茜从栅栏上的位置 $0$ 处开始，共进行 $N$ 次移动。</p>
+<p>移动可能形如 $10 L$，表示向左移动 $10$单位距离，也可能形如 $15 R$，表示向右移动 15 单位距离。</p>
+<p>给定贝茜的 $N$ 次移动列表，约翰想知道至少被涂抹了 22 层油漆的区域的总长度。</p>
+<p>整个行进过程中，贝茜距离出发地的距离不会超过 $10^9$。</p>
+<h4 id="输入格式-7"><a href="#输入格式-7" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含一个整数 $N$。</p>
+<p>接下来 $N$ 行，每一行包含一个行动指令，诸如 $10 L$ 或 $15 R$。</p>
+<h4 id="输出格式-7"><a href="#输出格式-7" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出至少被涂抹了 22 层油漆的区域的总长度。</p>
+<h4 id="数据范围-7"><a href="#数据范围-7" class="headerlink" title="数据范围"></a>数据范围</h4><p>$1≤N≤10^5$<br>整个行进过程中，贝茜距离出发地的距离不会超过 $10^9$。<br>每次指令移动距离的取值范围是 $[1,2×10^9]$。</p>
+<h4 id="输入样例：-7"><a href="#输入样例：-7" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">2 R</span><br><span class="line">6 L</span><br><span class="line">1 R</span><br><span class="line">8 L</span><br><span class="line">1 R</span><br><span class="line">2 R</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例：-7"><a href="#输出样例：-7" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6</span><br></pre></td></tr></table></figure>
+
+<h4 id="样例解释-5"><a href="#样例解释-5" class="headerlink" title="样例解释"></a>样例解释</h4><p>共有 66 单位长度的区域至少被涂抹 22 层油漆。</p>
+<p>这些区域为$ (−11,−8),(−4,−3),(0,2)$。</p>
+<p>今天这个知识点还没有学过，先把大佬的代码请过来，慢慢研究</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">map&lt;int, int&gt; mp;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int a = 0, b, n;</span><br><span class="line">    char c;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    for (int i = 0; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; b &gt;&gt; c;</span><br><span class="line">        if (c == &#x27;R&#x27;)</span><br><span class="line">            mp[a]++, mp[a + b + 1]--, a += b; //向右走就+b</span><br><span class="line">        else</span><br><span class="line">            mp[a - b]++, mp[a + 1]--, a -= b; //向左走就 -b</span><br><span class="line">    &#125;</span><br><span class="line">    int sum = 0, ans = 0, L;</span><br><span class="line">    //前缀和是差分的逆操作，用sum记录当前值，扫描一遍</span><br><span class="line">    for (auto [k, v] : mp)</span><br><span class="line">    &#123;</span><br><span class="line">        // debug3(k, v, sum);</span><br><span class="line">        if (sum &lt;= 1 &amp;&amp; sum + v &gt; 1)</span><br><span class="line">            L = k; //如果sum 从比2小变到比2大，那么k值就是区间左端点</span><br><span class="line">        else if (sum &gt; 1 &amp;&amp; sum + v &lt;= 1)</span><br><span class="line">            ans += k - L - 1; //反之就是区间右端点</span><br><span class="line">        sum += v;             //更新sum 的值</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; ans;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//作者：Cyzh</span><br><span class="line">//链接：https://www.acwing.com/solution/content/82920/</span><br><span class="line">//来源：AcWing</span><br><span class="line">//著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
+
+<h1 id="2022-x2F-1-x2F-8"><a href="#2022-x2F-1-x2F-8" class="headerlink" title="2022&#x2F;1&#x2F;8"></a>2022&#x2F;1&#x2F;8</h1><h3 id="1996-打乱字母-AcWing题库"><a href="#1996-打乱字母-AcWing题库" class="headerlink" title="1996. 打乱字母 - AcWing题库"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1998/">1996. 打乱字母 - AcWing题库</a></h3><p>今天又是学习大佬代码的一天</p>
+<p>农夫约翰将按字典序排列的 NN 头奶牛的名字列表贴在了牛棚的门上。</p>
+<p>每个奶牛的名字都由一个长度介于 11 到 2020 之间的由小写字母构成的唯一字符串表示。</p>
+<p>麻烦制造者贝茜将列表中的奶牛名字重新排序打乱了列表。</p>
+<p>此外，她还对每头奶牛的名字中的字母顺序进行了重新排列（也可能保持不变）。</p>
+<p>给定修改过后的列表，请帮助约翰确定列表中的每个名字可能出现在原始列表中的最低和最高位置。</p>
+<h4 id="输入格式-8"><a href="#输入格式-8" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含整数 NN。</p>
+<p>接下来 NN 行，按照修改过后列表的顺序，给出了修改过后的奶牛的名字。</p>
+<h4 id="输出格式-8"><a href="#输出格式-8" class="headerlink" title="输出格式"></a>输出格式</h4><p>共 NN 行，第 ii 行输出给定的第 ii 个字符串在原始列表中可能的最低和最高位置。</p>
+<h4 id="数据范围-8"><a href="#数据范围-8" class="headerlink" title="数据范围"></a>数据范围</h4><p>1≤N≤500001≤N≤50000</p>
+<h4 id="输入样例：-8"><a href="#输入样例：-8" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">essieb</span><br><span class="line">a</span><br><span class="line">xzy</span><br><span class="line">elsie</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例：-8"><a href="#输出样例：-8" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2 3</span><br><span class="line">1 1</span><br><span class="line">4 4</span><br><span class="line">2 3</span><br></pre></td></tr></table></figure>
+
+<h4 id="样例解释-6"><a href="#样例解释-6" class="headerlink" title="样例解释"></a>样例解释</h4><p>无论如何，字符串 “a” 必然出现在原始列表中第一个，类似的，字符串 “xzy” 必然出现在原始列表中的最后一个。</p>
+<p>而字符串 “essieb” 和 “elsie” 都有可能位于原始列表的第 22 位或第 33 位，这取决于它们的原始字母顺序。</p>
+<p>例如，”bessie” 和 “elsie” 分别位于 2,32,3 位，”sisbee” 和 “ilees” 分别位于 3,23,2 位。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int n;</span><br><span class="line">vector&lt;string&gt; r, u, d;//u(up)存储字典序排列的字符串，d(down)存储倒字典序排列的字符串</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    for(int i = 0; i &lt; n; i ++ )</span><br><span class="line">    &#123;</span><br><span class="line">        string s;</span><br><span class="line">        cin &gt;&gt; s;</span><br><span class="line"></span><br><span class="line">        sort(s.begin(), s.end(), less()); //字符串正字典序排列</span><br><span class="line">        u.push_back(s);</span><br><span class="line">        r.push_back(s);//r数组存的是正字典序排列的字符串，方便之后处理（因为题目要求按照输入的顺序输出）</span><br><span class="line"></span><br><span class="line">        //sort(s.begin(), s.end(), greater()); //字符串倒字典序排列</span><br><span class="line">        reverse(s.begin(), s.end());</span><br><span class="line">        d.push_back(s);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    sort(u.begin(), u.end(), less());//u中都是字典序排列字符串(升序，每个都是最小情况)</span><br><span class="line">    sort(d.begin(), d.end(), less());//d中都是倒字典序排列的字符串(升序，每个都是最大情况)</span><br><span class="line"></span><br><span class="line">    for(auto &amp;s : r)</span><br><span class="line">    &#123;</span><br><span class="line">        //最小的情况在最大的数组里面找(左边界)，最大的情况在最小的里面找(右边界)</span><br><span class="line"></span><br><span class="line">        //此时s它是最小的(因为一开始r存的就是把他正字典序重排的结果)，所以在倒字典序排列的字符串(字符串都是最大的情况)中找它的最小位置</span><br><span class="line">        int a = lower_bound(d.begin(), d.end(), s) - d.begin() + 1;//因为从1开始标号，所以+1</span><br><span class="line"></span><br><span class="line">        //sort(s.begin(), s.end(), greater());//将s倒字典序排列重组</span><br><span class="line">        reverse(s.begin(), s.end());</span><br><span class="line">        //此时s是最大的，在字典序排列的字符串(都是最小的情况)中找他的最大位置</span><br><span class="line">        int b = upper_bound(u.begin(), u.end(), s) - u.begin();//因为找的是第一个大于s的位置，所以-1再+1</span><br><span class="line"></span><br><span class="line">        cout &lt;&lt; a &lt;&lt; &#x27; &#x27; &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//作者：陈义</span><br><span class="line">//链接：https://www.acwing.com/solution/content/82453/</span><br><span class="line">//来源：AcWing</span><br><span class="line">//著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
+
+<h1 id="2022-x2F-1-x2F-7"><a href="#2022-x2F-1-x2F-7" class="headerlink" title="2022&#x2F;1&#x2F;7"></a>2022&#x2F;1&#x2F;7</h1><h3 id="AcWing-2005-马蹄铁–dfs-AcWing"><a href="#AcWing-2005-马蹄铁–dfs-AcWing" class="headerlink" title="AcWing 2005. 马蹄铁–dfs - AcWing"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/82238/">AcWing 2005. 马蹄铁–dfs - AcWing</a></h3><p>尽管奶牛贝茜发现每个平衡括号字符串都很美观，但她特别喜欢被她称为“完全”平衡的括号字符串—-一个由 <code>(</code> 构成的字符串后接一个长度相同的 <code>)</code> 构成的字符串。</p>
+<p>例如：<code>(((())))</code></p>
+<p>有一天，当贝茜穿过牛棚时，她发现地面上有一个 N×N 的马蹄铁矩阵。每个马蹄铁的方向都看上去像 <code>(</code> 或 <code>)</code>。</p>
+<p>从矩阵的左上角开始，贝茜希望四处走动以拾起马蹄铁，使得她捡起的马蹄铁按顺序构成的括号字符串是完全平衡的。</p>
+<p>请计算她能得到的最长完全平衡括号字符串的长度。</p>
+<p>每一步中，贝茜可以沿上下左右四个方向移动。</p>
+<p>她只能移动到包含马蹄铁的方格区域内，当她进入该区域时就会拿起那里的马蹄铁，并无法再次回到该位置（因为该位置没有马蹄铁了）。</p>
+<p>她首先拿起的是左上角的马蹄铁。</p>
+<p>由于她拿起的马蹄铁要形成一个完全平衡的字符串，因此她可能无法将所有马蹄铁都拿起来。</p>
+<h4 id="输入格式-9"><a href="#输入格式-9" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含整数 N。</p>
+<p>接下来 N 行，每行包含一个长度为 N 的括号字符串，用来表示括号矩阵。</p>
+<h4 id="输出格式-9"><a href="#输出格式-9" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出她能得到的最长完全平衡括号字符串的长度。</p>
+<p>如果无法得到完全平衡括号字符串（例如，左上角马蹄铁形如 <code>)</code>），则输出 00。</p>
+<h4 id="数据范围-9"><a href="#数据范围-9" class="headerlink" title="数据范围"></a>数据范围</h4><p>2≤N≤5</p>
+<h4 id="输入样例：-9"><a href="#输入样例：-9" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">(())</span><br><span class="line">()((</span><br><span class="line">(()(</span><br><span class="line">))))</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例：-9"><a href="#输出样例：-9" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">8</span><br></pre></td></tr></table></figure>
+
+<h4 id="样例解释-7"><a href="#样例解释-7" class="headerlink" title="样例解释"></a>样例解释</h4><p>贝茜的移动步骤如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1())</span><br><span class="line">2)((</span><br><span class="line">345(</span><br><span class="line">876)</span><br></pre></td></tr></table></figure>
+
+<p>AC代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int N = 6, M = 15;</span><br><span class="line"></span><br><span class="line">char g[N][N];</span><br><span class="line">int st[N][N]; //用于记录走过的状态</span><br><span class="line">int dx[4] = &#123;-1, 0, 1, 0&#125;, dy[4] = &#123;0, 1, 0, -1&#125;;</span><br><span class="line"></span><br><span class="line">int n, ans;</span><br><span class="line"></span><br><span class="line">//检查坐标是否出界</span><br><span class="line">bool check(int x, int y)</span><br><span class="line">&#123;</span><br><span class="line">    if (x &lt; 0  x &gt;= n  y &lt; 0  y &gt;= n)</span><br><span class="line">        return false;</span><br><span class="line">    if (st[x][y])</span><br><span class="line">        return false;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void dfs(int x, int y, int ln, int rn)</span><br><span class="line">&#123;</span><br><span class="line">    //找到了一组方案</span><br><span class="line">    if (ln == rn)</span><br><span class="line">        ans = max(ans, ln + rn);</span><br><span class="line">    for (int i = 0; i &lt; 4; i++) //四个方向</span><br><span class="line">    &#123;</span><br><span class="line">        int u = x + dx[i];</span><br><span class="line">        int v = y + dy[i];</span><br><span class="line">        if (check(u, v))</span><br><span class="line">        &#123;</span><br><span class="line">            //剪掉不合法的搜索路径</span><br><span class="line">            if (g[u][v] == &#x27;(&#x27; &amp;&amp; g[x][y] == &#x27;)&#x27;)</span><br><span class="line">                continue;</span><br><span class="line">            st[x][y] = true;</span><br><span class="line">            //由括号判断往哪里走</span><br><span class="line">            if (g[u][v] == &#x27;(&#x27;)</span><br><span class="line">                dfs(u, v, ln + 1, rn);</span><br><span class="line">            else</span><br><span class="line">                dfs(u, v, ln, rn + 1);</span><br><span class="line">            st[x][y] = false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    for (int i = 0; i &lt; n; i++)</span><br><span class="line">        for (int j = 0; j &lt; n; j++)</span><br><span class="line">            cin &gt;&gt; g[i][j];</span><br><span class="line"></span><br><span class="line">    if (g[0][0] == &#x27;)&#x27;)</span><br><span class="line">        cout &lt;&lt; 0;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        //第一个一定是左括号 一开始左括号数量为1</span><br><span class="line">        dfs(0, 0, 1, 0);</span><br><span class="line">        cout &lt;&lt; ans;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 作者：djn</span><br><span class="line">// 链接：https://www.acwing.com/solution/content/82259/</span><br><span class="line">// 来源：AcWing</span><br><span class="line">// 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
+
+<h1 id="2022-x2F-1-x2F-6"><a href="#2022-x2F-1-x2F-6" class="headerlink" title="2022&#x2F;1&#x2F;6"></a>2022&#x2F;1&#x2F;6</h1><p>缺失</p>
+<h1 id="2022-x2F-1-x2F-5"><a href="#2022-x2F-1-x2F-5" class="headerlink" title="2022&#x2F;1&#x2F;5"></a>2022&#x2F;1&#x2F;5</h1><h3 id="2058-笨拙的手指-AcWing题库"><a href="#2058-笨拙的手指-AcWing题库" class="headerlink" title="2058. 笨拙的手指 - AcWing题库"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/2060/">2058. 笨拙的手指 - AcWing题库</a></h3><p>奶牛贝茜正在学习如何在不同进制之间转换数字。</p>
+<p>但是她总是犯错误，因为她无法轻易的用两个前蹄握住笔。</p>
+<p>每当贝茜将数字转换为一个新的进制并写下结果时，她总是将其中的某一位数字写错。</p>
+<p>例如，如果她将数字 1414 转换为二进制数，那么正确的结果应为 11101110，但她可能会写下 01100110 或 11111111。</p>
+<p>贝茜不会额外添加或删除数字，但是可能会由于写错数字的原因，写下包含前导 00 的数字。</p>
+<p>给定贝茜将数字 NN 转换为二进制数字以及三进制数字的结果，请确定 NN 的正确初始值（十进制表示）。</p>
+<h4 id="输入格式-10"><a href="#输入格式-10" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含 NN 的二进制表示，其中一位是错误的。</p>
+<p>第二行包含 NN 的三进制表示，其中一位是错误的。</p>
+<h4 id="输出格式-10"><a href="#输出格式-10" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出正确的 NN 的值。</p>
+<h4 id="数据范围-10"><a href="#数据范围-10" class="headerlink" title="数据范围"></a>数据范围</h4><p>0≤N≤1090≤N≤109，且存在唯一解。</p>
+<h4 id="输入样例：-10"><a href="#输入样例：-10" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1010</span><br><span class="line">212</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例：-10"><a href="#输出样例：-10" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">14</span><br></pre></td></tr></table></figure>
+
+<h4 id="样例解释-8"><a href="#样例解释-8" class="headerlink" title="样例解释"></a>样例解释</h4><p>1414 在二进制下的正确表示为 11101110，在三进制下的正确表示为 112112。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">//思想：将所有结果枚举，依次更改二进制的每一位数和三进制每一位数，直到找到正确答案。</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    string a, b;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    for (int i = 0; i &lt; a.size(); i++)</span><br><span class="line">        for (int j = 0; j &lt; b.size(); j++)</span><br><span class="line">            for (char k = &#x27;0&#x27;; k &lt;= &#x27;2&#x27;; k++) //分别将这一位数字替换成 0 1 2</span><br><span class="line">            &#123;</span><br><span class="line">                string ra = a;</span><br><span class="line">                ra[i] ^= 1; //依次将每个二进制字符替换，异或运算</span><br><span class="line">                string rb = b;</span><br><span class="line">                if (b[j] == k) //如果要替换的数与本来的数相等则直接跳过</span><br><span class="line">                    continue;</span><br><span class="line">                rb[j] = k; //替换三进制数的其中一位</span><br><span class="line">                int x = 0, y = 0;</span><br><span class="line">                for (int i = 0; i &lt; ra.size(); i++)</span><br><span class="line">                    x = x * 2 + ra[i] - &#x27;0&#x27;; //进制转换</span><br><span class="line">                for (int i = 0; i &lt; rb.size(); i++)</span><br><span class="line">                    y = y * 3 + rb[i] - &#x27;0&#x27;;</span><br><span class="line">                if (x == y) //如果相等，输出这个数。</span><br><span class="line">                    return cout &lt;&lt; x &lt;&lt; endl, 0;</span><br><span class="line">            &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 作者：_Crush</span><br><span class="line">// 链接：https://www.acwing.com/solution/content/66592/</span><br><span class="line">// 来源：AcWing</span><br><span class="line">// 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "j7cOI85uofC4BmWjlUOCkqrN-gzGzoHsz",
+        app_key: "g6Bg0W8QxTnrlamF8JwPt6Rr",
+        placeholder: "留下你来过的痕迹~",
+        avatar:"robohash",
+    });
+</script>
+
+  </section>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+    <div class="widget-wrap-info">
+        <img src="https://blog.666baby.com/wp-content/uploads/2021/12/Pasted-2.png" class="widget-wrap-info-img">
+        <div class="widget-wrap-info-author">吴晗</div>
+        <div class="widget-wrap-info-signature">业精于勤，荒于嬉。</div>
+    </div>
+    <div class="info-nav">
+        <ul class="info-nav-ul">
+        
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="home"></i>
+                    </span>
+                    <span class="info-nav-name">首页</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/archives">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="archive"></i>
+                    </span>
+                    <span class="info-nav-name">归档</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/about">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="alert-circle"></i>
+                    </span>
+                    <span class="info-nav-name">关于</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/board">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="edit-3"></i>
+                    </span>
+                    <span class="info-nav-name">留言</span>
+                </div>
+            </a>
+           </li>
+          
+        </ul>
+    </div>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 吴晗<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> | Theme by  <a href="https://github.com/FuShaoLei/hexo-theme-hiya" target="_blank">Hiya</a>
+      
+        <br>
+        <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+      <span id="busuanzi_container_site_uv">
+        访客数<span id="busuanzi_value_site_uv"></span>人次
+      </span>
+        
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/,home" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives,archive" class="mobile-nav-link">归档</a>
+  
+    <a href="/about,alert-circle" class="mobile-nav-link">关于</a>
+  
+    <a href="/board,edit-3" class="mobile-nav-link">留言</a>
+  
+</nav>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script>
+    feather.replace()
+</script>
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

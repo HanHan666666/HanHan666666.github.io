@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>UOS或KylinOS的USBIP配置 | AmazingBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+ 
+  
+    <link rel="icon" href="https://blog.666baby.com/wp-content/uploads/2022/01/cropped-%E6%9C%AA%E6%A0%87%E9%A2%98-1-32x32.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+          <a class="main-nav-link" href="/board">留言</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-usbip的配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="name">
+      UOS或KylinOS的USBIP配置
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2022/01/10/usbip%E7%9A%84%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time datetime="2022-01-10T07:15:18.000Z" itemprop="datePublished">2022-01-10</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+
+          
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/USBIP/" rel="tag">USBIP</a></li></ul>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>对于很多Linux发行版不能直接搜索usbip的包名进行安装</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/01/OU9WLZJZO4194P1E.png"></p>
+<p>Kylin OS</p>
+<p>其实他是包含在一个名为<code>linux-tools-generic</code>的软件包中的</p>
+<p>对于UOS操作系统可以直接安装</p>
+<p><code>sudo apt install usbip</code></p>
+<p>若是不能直接安装usbip的包，比如说在Kylin OS中，就无法直接搜索到usbip</p>
+<p>就需要安装适合你正在使用的Linux内核版本的 <code>linux-tools-generic</code></p>
+<p>先<code>uname -a</code>查看你正在使用的Linux内核版本</p>
+<p>然后再搜索软件包：<code>sudo apt search linux-tools-你的内核版本</code>，操作如下图</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/01/image.png"></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/01/9OPYU3EIRZPWGQIM0.png"></p>
+<p>或者不用那么麻烦直接: <code>sudo apt install linux-tools-$(uname -r)</code></p>
+<p>最后加载关于usbip的内核模块，否则会出现错误</p>
+<p><code>sudo modprobe vhci-hcd</code></p>
+<p><code>sudo modprobe usbip-core</code></p>
+<p><code>sudo modprobe usbip-host</code></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/01/image-3.png"></p>
+<h2 id="Linux作为server配置方法"><a href="#Linux作为server配置方法" class="headerlink" title="Linux作为server配置方法"></a>Linux作为server配置方法</h2><p>首先使用<code>usbip list -l</code>列出本地设备</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/01/image-2.png"></p>
+<p>这三个设备其中有一个是我的U盘，虽然看不出哪一个是U盘（把U盘拔下来再试一下就知道了）</p>
+<p>这个U盘要使用usbip分享给其他局域网设备使用</p>
+<p>首先先bind这个设备</p>
+<p>方法：<code>sudo usbip bind -d busid</code></p>
+<p>U盘的busid是1-1</p>
+<p>所以： <code>sudo usbip bind -b 1-1</code></p>
+<p>取消bind就是<code>sudo apt unbind -d busid</code></p>
+<p>下一步是开启usbipd，监听3240端口</p>
+<p><code>sudo usbipd</code></p>
+<p>验证一下, 列出本地ip分享的设备</p>
+<p>sudo usbip list -r 127.0.0.1</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/01/image-4.png"></p>
+<p>server端配置完成</p>
+<h2 id="Windows作为client端配置"><a href="#Windows作为client端配置" class="headerlink" title="Windows作为client端配置"></a>Windows作为client端配置</h2><p>从以下仓库获得Windows平台的usbip</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/cezanne/usbip-win">cezanne&#x2F;usbip-win: USB&#x2F;IP for Windows (github.com)</a></p>
+<p>参考链接</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/cezanne/usbip-win">cezanne&#x2F;usbip-win: USB&#x2F;IP for Windows (github.com)</a></p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.linux-magazine.com/Issues/2018/208/Tutorial-USB-IP">Tutorial – USB&#x2F;IP » Linux Magazine (linux-magazine.com)</a></p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/USB/IP">USB&#x2F;IP - ArchWiki (archlinux.org)</a></p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.mobibrw.com/2018/15083">深海游弋的鱼 – 默默的点滴 (mobibrw.com)</a></p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/torvalds/linux/blob/master/tools/usb/usbip/src/usbipd.c">https://github.com/torvalds/linux/blob/master/tools/usb/usbip/src/usbipd.c</a></p>
+</blockquote>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "j7cOI85uofC4BmWjlUOCkqrN-gzGzoHsz",
+        app_key: "g6Bg0W8QxTnrlamF8JwPt6Rr",
+        placeholder: "留下你来过的痕迹~",
+        avatar:"robohash",
+    });
+</script>
+
+  </section>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+    <div class="widget-wrap-info">
+        <img src="https://blog.666baby.com/wp-content/uploads/2021/12/Pasted-2.png" class="widget-wrap-info-img">
+        <div class="widget-wrap-info-author">吴晗</div>
+        <div class="widget-wrap-info-signature">业精于勤，荒于嬉。</div>
+    </div>
+    <div class="info-nav">
+        <ul class="info-nav-ul">
+        
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="home"></i>
+                    </span>
+                    <span class="info-nav-name">首页</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/archives">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="archive"></i>
+                    </span>
+                    <span class="info-nav-name">归档</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/about">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="alert-circle"></i>
+                    </span>
+                    <span class="info-nav-name">关于</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/board">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="edit-3"></i>
+                    </span>
+                    <span class="info-nav-name">留言</span>
+                </div>
+            </a>
+           </li>
+          
+        </ul>
+    </div>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 吴晗<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> | Theme by  <a href="https://github.com/FuShaoLei/hexo-theme-hiya" target="_blank">Hiya</a>
+      
+        <br>
+        <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+      <span id="busuanzi_container_site_uv">
+        访客数<span id="busuanzi_value_site_uv"></span>人次
+      </span>
+        
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/,home" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives,archive" class="mobile-nav-link">归档</a>
+  
+    <a href="/about,alert-circle" class="mobile-nav-link">关于</a>
+  
+    <a href="/board,edit-3" class="mobile-nav-link">留言</a>
+  
+</nav>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script>
+    feather.replace()
+</script>
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>
