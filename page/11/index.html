@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>AmazingBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+ 
+  
+    <link rel="icon" href="https://blog.666baby.com/wp-content/uploads/2022/01/cropped-%E6%9C%AA%E6%A0%87%E9%A2%98-1-32x32.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+          <a class="main-nav-link" href="/board">留言</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-c-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/08/06/c-1/">母牛的故事</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/08/06/c-1/" class="article-date">
+  <time datetime="2021-08-06T08:00:27.000Z" itemprop="datePublished">2021-08-06</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>有一头母牛，它每年年初生一头小母牛。每头小母牛从第四个年头开始，每年年初也生一头小母牛。请编程实现在第n年的时候，共有多少头母牛？</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>输入数据由多个测试实例组成，每个测试实例占一行，包括一个整数n(0&lt;n&lt;55)，n的含义如题目中描述。 n&#x3D;0表示输入数据的结束，不做处理。</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>对于每个测试实例，输出在第n年的时候母牛的数量。 每个输出占一行。</p>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><p>2 4 5 0</p>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><p>2 4 6</p>
+<p>年份</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>数量</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>6</p>
+<p>9</p>
+<p>13</p>
+<p>根据年份和数量找到对应的关系即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    long long int num[100];</span><br><span class="line">    for (int i = 1; i &lt;= 4; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        num[i] = i;</span><br><span class="line">    &#125;</span><br><span class="line">    for (int i = 5; i &lt; 60; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        num[i] = num[i - 3] + num[i - 1];//根据表中的规律，所求年份的数量等于三年前的数量加上去年数量</span><br><span class="line">    &#125;</span><br><span class="line">    int n;</span><br><span class="line">    while (cin &gt;&gt; n &amp;&amp; n)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; num[n] &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> </p>
+<h1 id="类似的一个题目"><a href="#类似的一个题目" class="headerlink" title="类似的一个题目"></a>类似的一个题目</h1><h2 id="昆虫繁殖"><a href="#昆虫繁殖" class="headerlink" title="昆虫繁殖"></a>昆虫繁殖</h2><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>科学家在热带森林中发现了一种特殊的昆虫，这种昆虫的繁殖能力很强。每对成虫过x个月产y对卵，每对卵要过两个月长成成虫。假设每个成虫不死，第一个月只有一对成虫，且卵长成成虫后的第一个月不产卵(过X个月产卵)，问过Z个月以后，共有成虫多少对？0≤X≤20，1≤Y≤20，X≤Z≤50</p>
+<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><p>x,y,z的数值</p>
+<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><p>过Z个月以后，共有成虫对数</p>
+<h4 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h4><p>1 2 8</p>
+<h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h4><p>37</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> y, z, x, i, a[<span class="number">101</span>] = &#123;<span class="number">0</span>&#125;, b[<span class="number">101</span>] = &#123;<span class="number">0</span>&#125;; <span class="comment">//a数组里存的是指定月数里的成虫对数，b数组里存的是指定月数的新生昆虫对数</span></span><br><span class="line"></span><br><span class="line">    cin &gt;&gt; x &gt;&gt; y &gt;&gt; z; <span class="comment">//输入x，y，z的数值</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= x; i++) <span class="comment">//因为过x个月才产卵，所以x个月中的每一个月：a数组里一直是一对成虫，所以a[i]=1；b数组里的新生昆虫对数一直是0，b[i]=0</span></span><br><span class="line">    &#123;</span><br><span class="line">        a[i] = <span class="number">1</span>;</span><br><span class="line">        b[i] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = x + <span class="number">1</span>; i &lt;= z + <span class="number">1</span>; ++i) <span class="comment">//从x个月后的第x+1个月开始，有新生昆虫诞生，开始计数，一直统计到第z个月之后，也就是统计到第z+1个月</span></span><br><span class="line">    &#123;</span><br><span class="line">        b[i] = y * a[i - x];        <span class="comment">//(第i个月的新生昆虫对数为第i个月的前x个月的成虫对数)a[i-x]*(每对成虫产卵量)y</span></span><br><span class="line">        a[i] = a[i - <span class="number">1</span>] + b[i - <span class="number">2</span>]; <span class="comment">//(第i个月的成虫对数)a[i]为(上一个月i-1的成虫对数)    a[i-1]加上(前2个月的新生昆虫对数)b[i-2]（因为新生昆虫2个月后长成成虫昆虫）</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; a[z + <span class="number">1</span>] &lt;&lt; endl; <span class="comment">//输出第z+1个月的成虫对数</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*注释内容来自：https://blog.csdn.net/FENGXUEYINCHEN/article/details/109919280*/</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-nopasswdingit" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/08/05/nopasswdingit/">Git每次推送拉取都需要输入用户名和密码的解决方法</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/08/05/nopasswdingit/" class="article-date">
+  <time datetime="2021-08-05T11:22:11.000Z" itemprop="datePublished">2021-08-05</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧</a>►<a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>进入你的项目目录，输入： <code>git config --global credential.helper store</code> 然后会在你本地生成一个文本，上边记录你的账号和密码。 再操作一次git pull 然后它会提示你输入账号密码 这一次之后就不需要再次输入密码了。</p>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-nopasswdingit-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/08/05/nopasswdingit-1/">Git每次推送拉取都需要输入用户名和密码的解决方法</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/08/05/nopasswdingit-1/" class="article-date">
+  <time datetime="2021-08-05T11:22:11.000Z" itemprop="datePublished">2021-08-05</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧</a>►<a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>进入你的项目目录，输入： <code>git config --global credential.helper store</code> 然后会在你本地生成一个文本，上边记录你的账号和密码。 再操作一次git pull 然后它会提示你输入账号密码 这一次之后就不需要再次输入密码了。</p>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-markdownalli" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/26/markdownalli/">markdown all in one——一个比较完美的markdown转pdf解决方案</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/07/26/markdownalli/" class="article-date">
+  <time datetime="2021-07-26T02:55:17.000Z" itemprop="datePublished">2021-07-26</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://blog.666baby.com/wp-content/uploads/2021/07/Pasted-into-markdown-all-in-one%E2%80%94%E2%80%94%E4%B8%80%E4%B8%AA%E6%AF%94%E8%BE%83%E5%AE%8C%E7%BE%8E%E7%9A%84markdown%E8%BD%ACpdf%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.png"></p>
+<p>主要方法：使用vscode中的markdown all in one插件将markdown转换为html在使用浏览器将html转换为pdf</p>
+<p>本方法可以有较好的对导出数学公式的支持</p>
+<p>具体的操作：</p>
+<p>首先需要有VScode和vscode中的插件markdown all in one</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/07/Pasted-into-markdown-all-in-one%E2%80%94%E2%80%94%E4%B8%80%E4%B8%AA%E6%AF%94%E8%BE%83%E5%AE%8C%E7%BE%8E%E7%9A%84markdown%E8%BD%ACpdf%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-1.png"></p>
+<p>在编辑好之后</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/07/Pasted-into-markdown-all-in-one%E2%80%94%E2%80%94%E4%B8%80%E4%B8%AA%E6%AF%94%E8%BE%83%E5%AE%8C%E7%BE%8E%E7%9A%84markdown%E8%BD%ACpdf%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-2.png"></p>
+<p>按下CTRL+shift+P按照图中搜索</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/07/Pasted-into-markdown-all-in-one%E2%80%94%E2%80%94%E4%B8%80%E4%B8%AA%E6%AF%94%E8%BE%83%E5%AE%8C%E7%BE%8E%E7%9A%84markdown%E8%BD%ACpdf%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-5.png"></p>
+<p>选择将当前文档打印到html</p>
+<p>注意一定要在需要输出pdf的markdown文档下</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/07/Pasted-into-markdown-all-in-one%E2%80%94%E2%80%94%E4%B8%80%E4%B8%AA%E6%AF%94%E8%BE%83%E5%AE%8C%E7%BE%8E%E7%9A%84markdown%E8%BD%ACpdf%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-6.png"></p>
+<p>输出之后会在左边看到一个HTML文件</p>
+<p>在浏览器中打开它</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/07/Pasted-into-markdown-all-in-one%E2%80%94%E2%80%94%E4%B8%80%E4%B8%AA%E6%AF%94%E8%BE%83%E5%AE%8C%E7%BE%8E%E7%9A%84markdown%E8%BD%ACpdf%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-7.png"></p>
+<p>打开之后确认显示会没有问题</p>
+<p>CTRL+P输出pdf</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/07/Pasted-into-markdown-all-in-one%E2%80%94%E2%80%94%E4%B8%80%E4%B8%AA%E6%AF%94%E8%BE%83%E5%AE%8C%E7%BE%8E%E7%9A%84markdown%E8%BD%ACpdf%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-9.png"></p>
+<p>之后会得到一个pdf文件</p>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-markdownalli-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/26/markdownalli-1/">markdown all in one——一个比较完美的markdown转pdf解决方案</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/07/26/markdownalli-1/" class="article-date">
+  <time datetime="2021-07-26T02:55:17.000Z" itemprop="datePublished">2021-07-26</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://blog.666baby.com/wp-content/uploads/2021/07/Pasted-into-markdown-all-in-one%E2%80%94%E2%80%94%E4%B8%80%E4%B8%AA%E6%AF%94%E8%BE%83%E5%AE%8C%E7%BE%8E%E7%9A%84markdown%E8%BD%ACpdf%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.png"></p>
+<p>主要方法：使用vscode中的markdown all in one插件将markdown转换为html在使用浏览器将html转换为pdf</p>
+<p>本方法可以有较好的对导出数学公式的支持</p>
+<p>具体的操作：</p>
+<p>首先需要有VScode和vscode中的插件markdown all in one</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/07/Pasted-into-markdown-all-in-one%E2%80%94%E2%80%94%E4%B8%80%E4%B8%AA%E6%AF%94%E8%BE%83%E5%AE%8C%E7%BE%8E%E7%9A%84markdown%E8%BD%ACpdf%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-1.png"></p>
+<p>在编辑好之后</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/07/Pasted-into-markdown-all-in-one%E2%80%94%E2%80%94%E4%B8%80%E4%B8%AA%E6%AF%94%E8%BE%83%E5%AE%8C%E7%BE%8E%E7%9A%84markdown%E8%BD%ACpdf%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-2.png"></p>
+<p>按下CTRL+shift+P按照图中搜索</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/07/Pasted-into-markdown-all-in-one%E2%80%94%E2%80%94%E4%B8%80%E4%B8%AA%E6%AF%94%E8%BE%83%E5%AE%8C%E7%BE%8E%E7%9A%84markdown%E8%BD%ACpdf%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-5.png"></p>
+<p>选择将当前文档打印到html</p>
+<p>注意一定要在需要输出pdf的markdown文档下</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/07/Pasted-into-markdown-all-in-one%E2%80%94%E2%80%94%E4%B8%80%E4%B8%AA%E6%AF%94%E8%BE%83%E5%AE%8C%E7%BE%8E%E7%9A%84markdown%E8%BD%ACpdf%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-6.png"></p>
+<p>输出之后会在左边看到一个HTML文件</p>
+<p>在浏览器中打开它</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/07/Pasted-into-markdown-all-in-one%E2%80%94%E2%80%94%E4%B8%80%E4%B8%AA%E6%AF%94%E8%BE%83%E5%AE%8C%E7%BE%8E%E7%9A%84markdown%E8%BD%ACpdf%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-7.png"></p>
+<p>打开之后确认显示会没有问题</p>
+<p>CTRL+P输出pdf</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/07/Pasted-into-markdown-all-in-one%E2%80%94%E2%80%94%E4%B8%80%E4%B8%AA%E6%AF%94%E8%BE%83%E5%AE%8C%E7%BE%8E%E7%9A%84markdown%E8%BD%ACpdf%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-9.png"></p>
+<p>之后会得到一个pdf文件</p>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-wertyu" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/19/wertyu/">WERTYU</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/07/19/wertyu/" class="article-date">
+  <time datetime="2021-07-19T12:39:32.000Z" itemprop="datePublished">2021-07-19</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/uncategorized/">uncategorized</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>A common typing error is to place thehands on the keyboard one row to theright of the correct position. So ‘Q’ is typed as ‘W’ and ‘J’ is typed as ‘K’ and so on. You are to decode a message typed in this manner.</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>Input consists of several lines of text. Each line may contain digits, spaces, upper case letters (except Q, A, Z), or punctuation shown above [except back-quote (‘)]. Keys labelled with words [Tab, BackSp, Control, etc.] are not represented in the input.</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>You are to replace each letter or punction symbol by the one immediately to its left on the ‘QWERTY’ keyboard shown above. Spaces in the input should be echoed in the output.</p>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><p>O S, GOMR YPFSU&#x2F;</p>
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><p>I AM FINE TODAY</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;                          <span class="comment">//先将其存放在字符串中，如果匹配输出前一位 </span></span><br><span class="line">    string s = <span class="string">&quot;`1234567890-=QWERTYUIOP[]\ASDFGHJKL;&#x27;ZXCVBNM,./&quot;</span>;</span><br><span class="line">    <span class="type">char</span> c;</span><br><span class="line">    <span class="keyword">while</span> ((c = <span class="built_in">getchar</span>()) != EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (c == <span class="string">&#x27; &#x27;</span>  c == <span class="string">&#x27;\n&#x27;</span>)     <span class="comment">//如果有空格和换行，照样输出 </span></span><br><span class="line">            cout &lt;&lt; c;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt; s.<span class="built_in">length</span>();i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (c == s[i])             <span class="comment">//依次寻找匹配 </span></span><br><span class="line">                    cout &lt;&lt; s[i - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-wertyu-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/19/wertyu-1/">WERTYU</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/07/19/wertyu-1/" class="article-date">
+  <time datetime="2021-07-19T12:39:32.000Z" itemprop="datePublished">2021-07-19</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/uncategorized/">uncategorized</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>A common typing error is to place thehands on the keyboard one row to theright of the correct position. So ‘Q’ is typed as ‘W’ and ‘J’ is typed as ‘K’ and so on. You are to decode a message typed in this manner.</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>Input consists of several lines of text. Each line may contain digits, spaces, upper case letters (except Q, A, Z), or punctuation shown above [except back-quote (‘)]. Keys labelled with words [Tab, BackSp, Control, etc.] are not represented in the input.</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>You are to replace each letter or punction symbol by the one immediately to its left on the ‘QWERTY’ keyboard shown above. Spaces in the input should be echoed in the output.</p>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><p>O S, GOMR YPFSU&#x2F;</p>
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><p>I AM FINE TODAY</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;                          <span class="comment">//先将其存放在字符串中，如果匹配输出前一位 </span></span><br><span class="line">    string s = <span class="string">&quot;`1234567890-=QWERTYUIOP[]\ASDFGHJKL;&#x27;ZXCVBNM,./&quot;</span>;</span><br><span class="line">    <span class="type">char</span> c;</span><br><span class="line">    <span class="keyword">while</span> ((c = <span class="built_in">getchar</span>()) != EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (c == <span class="string">&#x27; &#x27;</span>  c == <span class="string">&#x27;\n&#x27;</span>)     <span class="comment">//如果有空格和换行，照样输出 </span></span><br><span class="line">            cout &lt;&lt; c;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt; s.<span class="built_in">length</span>();i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (c == s[i])             <span class="comment">//依次寻找匹配 </span></span><br><span class="line">                    cout &lt;&lt; s[i - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-一些函数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/18/%E4%B8%80%E4%BA%9B%E5%87%BD%E6%95%B0/">一些函数 C/C++</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/07/18/%E4%B8%80%E4%BA%9B%E5%87%BD%E6%95%B0/" class="article-date">
+  <time datetime="2021-07-18T10:01:53.000Z" itemprop="datePublished">2021-07-18</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="memcpy"><a href="#memcpy" class="headerlink" title="memcpy"></a>memcpy</h3><p>memcpy 函数原型如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> *<span class="title">memcpy</span><span class="params">(<span class="type">void</span> *dest, <span class="type">void</span> *src, <span class="type">unsigned</span> <span class="type">int</span> count)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="功能："><a href="#功能：" class="headerlink" title="功能："></a>功能：</h4><p>从源 src 所指的内存地址的起始位置开始拷贝 n 个字节到目标 dest 所指的内存地址的起始位置中。 使用 memcpy 函数要包含头文件 string.h。 示例 1：从数组 a 复制到 k 个元素到数组 b</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">memcpy</span>(b,a,<span class="built_in">sizeof</span>(<span class="type">int</span>)*k); </span><br></pre></td></tr></table></figure>
+
+<p>示例 2：若数组 a 和 b 都是浮点型的，复制时要写成：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">memcpy</span>(b,a,<span class="built_in">sizeof</span>(<span class="type">double</span>)*k);</span><br></pre></td></tr></table></figure>
+
+<p>示例 3：如果需要把数组 a 全部复制到数组 b 中，可以写成：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">memcpy</span>(b,a,<span class="built_in">sizeof</span>(a));</span><br></pre></td></tr></table></figure>
+
+<h3 id="memset"><a href="#memset" class="headerlink" title="memset"></a>memset</h3><p><code>`memset(a,0,sizeof(a))`</code> 的作用是把数组 a 清零它也在 string.h中定义。 使用 memset 比 for 循环更方便、快捷。 memset 函数原型如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> *<span class="title">memset</span><span class="params">(<span class="type">void</span> *buffer, <span class="type">char</span> c, <span class="type">int</span> count)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>功能：把 buffer 所指内存区域的前 count 个字节设置成字符 c 第三个参数指的是字节的个数，返回指向 buffer 的指针 在程序中需包含头文件：#include&lt;string.h&gt; 由 memset 函数的头文件可以知道，其主要是对字符数组进行设置， 当然也可以对数组进行初始赋值（一般是 0,-1）。</p>
+<h3 id="atoi"><a href="#atoi" class="headerlink" title="atoi"></a>atoi</h3><p><code>`int atoi(char *s)`</code> 它表示将字符串 s 中的内容转换成一个整型数返回，如字符串“1234”,则函数返 回值是 1234。</p>
+<h3 id="itoa"><a href="#itoa" class="headerlink" title="itoa"></a>itoa</h3><p>在 stdlib.h 中有一个函数 itoa，它的函数原型如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">itoa</span><span class="params">(<span class="type">int</span> value,<span class="type">char</span> *string,<span class="type">int</span> radix)</span> </span></span><br></pre></td></tr></table></figure>
+
+<p>它表示将整数 value 转换成字符串存入 string, radix 为转换时所用基数(保 存到字符串中的数据的进制基数 2 8 10 16)，返回指向转换后的字符串的指针 。 例如，<code>`itoa(32,string,10)`</code>是将 32 变成十进制数一个字符串“32”，并返回 指向这个字符串的指针；itoa(32,string,16)是将 32 变成十进制数一个字符串 “20”，并返回指向这个字符串的指针。</p>
+<h3 id="sprintf"><a href="#sprintf" class="headerlink" title="sprintf"></a>sprintf</h3><p>sprintf是个变参函数，定义如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">sprintf</span><span class="params">( <span class="type">char</span> *buffer, <span class="type">const</span> <span class="type">char</span> *format [, argument] ... )</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>除了前两个参数类型固定外，后面可以接任意多个参数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sprintf</span>(buf,<span class="string">&quot;%d%d%d%d%d&quot;</span>,abc,de,x,y,z);</span><br></pre></td></tr></table></figure>
+
+<p>语句的功能是将整数abcdexyx打印成字符串存储在串buff中。 可以直接接受其返回值：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> len=<span class="built_in">sprintf</span>(buf, <span class="string">&quot;%d%d%d%d%d&quot;</span>, abc, de, x, y, z);</span><br></pre></td></tr></table></figure>
+
+<h3 id="strchr"><a href="#strchr" class="headerlink" title="strchr"></a>strchr</h3><p>strchr函数定义如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">strchr</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *s,<span class="type">char</span> c)</span></span>;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能：</strong>查找字符串s中首次出现字符c的位置。它的返回值是返回首次出现c的位置的指针，如果s中不存在c则返回NULL。包含此函数的头文件是string.h。</p>
+<p>例如，本程序的if语句中strchr(s, buf[i])的功能是查找字符串s中首次出字符buf[i]的位置。如果strchr(s, buf[i])&#x3D;&#x3D;NULL，则表明字符串s中没有buf[i]的字符。</p>
+<h3 id="sprintf函数、printf函数、fprintf函数的区别"><a href="#sprintf函数、printf函数、fprintf函数的区别" class="headerlink" title="sprintf函数、printf函数、fprintf函数的区别"></a>sprintf函数、printf函数、fprintf函数的区别</h3><p>printf输出到屏幕，fprintf输出到文件，而sprintf输出到字符串。需要注意是应该保证写入的字符串有足够的空间。</p>
+<p><strong>提示：</strong>C语言中的字符串是’\0’结尾的字符数组，可以用strlen(s)返回字符串s中结束标记之前的字符个数。字符串中的各个字符是：s[0],s[1],…,s[strlen(s)-1]。</p>
+<p><strong>提示：</strong>由于字符串的本质是数组，它也不是“一等公民”，只能用strcpy(a,b)、strcmp(a,b)、strcat(a,b)来执行“赋值”、“比较”和“连接”操作。而不能用=、=&#x3D;、&lt;&#x3D;、+等运算符。上述函数都在string.h中声明。</p>
+<p><strong>提示：</strong>但编译选项-Wall编译程序时，会给出很多（但不是所有）警告信息，以帮助程序员查错。但并不能解决所有的问题：有些“错误”程序是合法的，只是这些动作不是你所期望的。</p>
+<p><strong>C****语言中的gets(s)存在缓冲区溢出漏洞，不推荐使用。</strong></p>
+<p>代替者fgets?教程<a target="_blank" rel="noopener" href="http://c语言中的gets(s)存在缓冲区溢出漏洞,不推荐使用./"></a><a target="_blank" rel="noopener" href="http://c语言中的gets(s)存在缓冲区溢出漏洞,不推荐使用/">http://C语言中的gets(s)存在缓冲区溢出漏洞，不推荐使用</a>。</p>
+<h1 id="字母操作"><a href="#字母操作" class="headerlink" title="字母操作"></a>字母操作</h1><h3 id="isalpha"><a href="#isalpha" class="headerlink" title="isalpha"></a><strong>isalpha</strong></h3><p><strong>原型：</strong>int isalpha（int ch）</p>
+<p><strong>用法：</strong>头文件加入#include <cctype>(C语言使用&lt;ctype.h&gt;)</p>
+<p><strong>功能：</strong>判断字符ch是否为英文字母，当ch为英文字母a-z或A-Z时，在标准c中相当于使用“isupper(ch)islower(ch)”做测试，返回非零值(不一定是1)，否则返回零。</p>
+<h3 id="isupper"><a href="#isupper" class="headerlink" title="isupper"></a><strong>isupper</strong></h3><p><strong>原型：</strong>extern int isupper(int c);</p>
+<p><strong>头文件：</strong><cctype>( C语言使用&lt;ctype.h&gt;)</p>
+<p><strong>功能：</strong>判断字符c是否为大写英文字母</p>
+<p><strong>说明：</strong>当参数c为大写英文字母(A-Z)时，返回非零值，否则返回零。</p>
+<p><strong>附加说明：</strong> 此为宏定义，非真正函数。</p>
+<h3 id="islower"><a href="#islower" class="headerlink" title="islower"></a><strong>islower</strong></h3><p><strong>头文件：</strong>#include<cctype>( C语言使用&lt;ctype.h&gt;)</p>
+<p><strong>用法：</strong>int islower(int c)</p>
+<p><strong>函数说明：</strong>检查参数c是否为小写英文字母。</p>
+<p><strong>返回值：</strong>若参数c为小写英文字母，则返回TRUE，否则返回NULL(0)。</p>
+<p><strong>附加说明：</strong>此为宏定义，非真正函数。</p>
+<h3 id="toupper"><a href="#toupper" class="headerlink" title="toupper"></a><strong>toupper</strong></h3><p><strong>原型：</strong>extern int toupper(int c);</p>
+<p><strong>用法：</strong>#include &lt;ctype.h&gt;</p>
+<p><strong>功能：</strong>将字符c转换为大写英文字母</p>
+<p><strong>说明：</strong>如果c为小写英文字母，则返回对应的大写字母；否则返回原来的值。</p>
+<h3 id="tolower"><a href="#tolower" class="headerlink" title="tolower"></a><strong>tolower</strong></h3><p><strong>功 能:</strong> 把字符转换成小写字母,非字母字符不做出处理</p>
+<p><strong>头文件：</strong>在VC6.0可以是ctype.h或者stdlib.h，常用ctype.h</p>
+<p><strong>用 法:</strong> int tolower(int c);</p>
+<p><strong>说明：</strong>如果c为大写英文字母，则返回对应的小写字母；否则返回原来的值。</p>
+<h3 id="isdigit"><a href="#isdigit" class="headerlink" title="isdigit"></a><strong>isdigit</strong></h3><p><strong>原型：</strong>extern int isdigit(char c);</p>
+<p><strong>用法：</strong>#include &lt;ctype.h&gt;</p>
+<p><strong>功能：</strong>判断字符c是否为数字</p>
+<p><strong>说明：</strong>当c为数字0-9时，返回非零值，否则返回零。</p>
+<p><strong>附加说明</strong>:此为宏定义，非真正函数。</p>
+<h3 id="isprint"><a href="#isprint" class="headerlink" title="isprint"></a><strong>isprint</strong></h3><p><strong>原型：</strong>extern int isprint(char c);</p>
+<p><strong>用法：</strong>#include &lt;ctype.h&gt;</p>
+<p><strong>功能：</strong>判断字符c是否为可打印字符（含空格）</p>
+<p><strong>说明：</strong>当c为可打印字符（0x20-0x7e）时，返回非零值，否则返回零。</p>
+<p><strong>附加说明：</strong>此为宏定义，非真正函数。</p>
+<p><strong>提示：</strong>头文件ctype.h中定义的isalpha、isdigit、isprint等工具可以用来判断字符的属性，而toupper、tolower等工具可以用来转换大小写。</p>
+<p><strong>说明：</strong></p>
+<p>（1）isalpha(c)用来检查c是否为字母，如果是字母，则返回1；否则返回0。</p>
+<p>（2）isdigit(c)用来检查c是否为数字（0～9），如果是数字，则返回1；否则返回0。</p>
+<p>（3）isprint(c)用来检查c是否为可打印字符（不包括空格），其ASCII码值在0x21～0x7e之间，如果是可打印字符，则返回1；否则返回0。</p>
+<p>（4）toupper(c)用来将c字符转换为大写字母，返回c对应的大写字母。</p>
+<p>（5）tolower(c)用来将c字符转换为小写字母，返回c对应的小写字母。</p>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-一些函数-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/18/%E4%B8%80%E4%BA%9B%E5%87%BD%E6%95%B0-1/">一些函数 C/C++</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/07/18/%E4%B8%80%E4%BA%9B%E5%87%BD%E6%95%B0-1/" class="article-date">
+  <time datetime="2021-07-18T10:01:53.000Z" itemprop="datePublished">2021-07-18</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="memcpy"><a href="#memcpy" class="headerlink" title="memcpy"></a>memcpy</h3><p>memcpy 函数原型如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> *<span class="title">memcpy</span><span class="params">(<span class="type">void</span> *dest, <span class="type">void</span> *src, <span class="type">unsigned</span> <span class="type">int</span> count)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="功能："><a href="#功能：" class="headerlink" title="功能："></a>功能：</h4><p>从源 src 所指的内存地址的起始位置开始拷贝 n 个字节到目标 dest 所指的内存地址的起始位置中。 使用 memcpy 函数要包含头文件 string.h。 示例 1：从数组 a 复制到 k 个元素到数组 b</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">memcpy</span>(b,a,<span class="built_in">sizeof</span>(<span class="type">int</span>)*k); </span><br></pre></td></tr></table></figure>
+
+<p>示例 2：若数组 a 和 b 都是浮点型的，复制时要写成：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">memcpy</span>(b,a,<span class="built_in">sizeof</span>(<span class="type">double</span>)*k);</span><br></pre></td></tr></table></figure>
+
+<p>示例 3：如果需要把数组 a 全部复制到数组 b 中，可以写成：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">memcpy</span>(b,a,<span class="built_in">sizeof</span>(a));</span><br></pre></td></tr></table></figure>
+
+<h3 id="memset"><a href="#memset" class="headerlink" title="memset"></a>memset</h3><p><code>`memset(a,0,sizeof(a))`</code> 的作用是把数组 a 清零它也在 string.h中定义。 使用 memset 比 for 循环更方便、快捷。 memset 函数原型如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> *<span class="title">memset</span><span class="params">(<span class="type">void</span> *buffer, <span class="type">char</span> c, <span class="type">int</span> count)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>功能：把 buffer 所指内存区域的前 count 个字节设置成字符 c 第三个参数指的是字节的个数，返回指向 buffer 的指针 在程序中需包含头文件：#include&lt;string.h&gt; 由 memset 函数的头文件可以知道，其主要是对字符数组进行设置， 当然也可以对数组进行初始赋值（一般是 0,-1）。</p>
+<h3 id="atoi"><a href="#atoi" class="headerlink" title="atoi"></a>atoi</h3><p><code>`int atoi(char *s)`</code> 它表示将字符串 s 中的内容转换成一个整型数返回，如字符串“1234”,则函数返 回值是 1234。</p>
+<h3 id="itoa"><a href="#itoa" class="headerlink" title="itoa"></a>itoa</h3><p>在 stdlib.h 中有一个函数 itoa，它的函数原型如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">itoa</span><span class="params">(<span class="type">int</span> value,<span class="type">char</span> *string,<span class="type">int</span> radix)</span> </span></span><br></pre></td></tr></table></figure>
+
+<p>它表示将整数 value 转换成字符串存入 string, radix 为转换时所用基数(保 存到字符串中的数据的进制基数 2 8 10 16)，返回指向转换后的字符串的指针 。 例如，<code>`itoa(32,string,10)`</code>是将 32 变成十进制数一个字符串“32”，并返回 指向这个字符串的指针；itoa(32,string,16)是将 32 变成十进制数一个字符串 “20”，并返回指向这个字符串的指针。</p>
+<h3 id="sprintf"><a href="#sprintf" class="headerlink" title="sprintf"></a>sprintf</h3><p>sprintf是个变参函数，定义如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">sprintf</span><span class="params">( <span class="type">char</span> *buffer, <span class="type">const</span> <span class="type">char</span> *format [, argument] ... )</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>除了前两个参数类型固定外，后面可以接任意多个参数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sprintf</span>(buf,<span class="string">&quot;%d%d%d%d%d&quot;</span>,abc,de,x,y,z);</span><br></pre></td></tr></table></figure>
+
+<p>语句的功能是将整数abcdexyx打印成字符串存储在串buff中。 可以直接接受其返回值：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> len=<span class="built_in">sprintf</span>(buf, <span class="string">&quot;%d%d%d%d%d&quot;</span>, abc, de, x, y, z);</span><br></pre></td></tr></table></figure>
+
+<h3 id="strchr"><a href="#strchr" class="headerlink" title="strchr"></a>strchr</h3><p>strchr函数定义如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">strchr</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *s,<span class="type">char</span> c)</span></span>;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能：</strong>查找字符串s中首次出现字符c的位置。它的返回值是返回首次出现c的位置的指针，如果s中不存在c则返回NULL。包含此函数的头文件是string.h。</p>
+<p>例如，本程序的if语句中strchr(s, buf[i])的功能是查找字符串s中首次出字符buf[i]的位置。如果strchr(s, buf[i])&#x3D;&#x3D;NULL，则表明字符串s中没有buf[i]的字符。</p>
+<h3 id="sprintf函数、printf函数、fprintf函数的区别"><a href="#sprintf函数、printf函数、fprintf函数的区别" class="headerlink" title="sprintf函数、printf函数、fprintf函数的区别"></a>sprintf函数、printf函数、fprintf函数的区别</h3><p>printf输出到屏幕，fprintf输出到文件，而sprintf输出到字符串。需要注意是应该保证写入的字符串有足够的空间。</p>
+<p><strong>提示：</strong>C语言中的字符串是’\0’结尾的字符数组，可以用strlen(s)返回字符串s中结束标记之前的字符个数。字符串中的各个字符是：s[0],s[1],…,s[strlen(s)-1]。</p>
+<p><strong>提示：</strong>由于字符串的本质是数组，它也不是“一等公民”，只能用strcpy(a,b)、strcmp(a,b)、strcat(a,b)来执行“赋值”、“比较”和“连接”操作。而不能用=、=&#x3D;、&lt;&#x3D;、+等运算符。上述函数都在string.h中声明。</p>
+<p><strong>提示：</strong>但编译选项-Wall编译程序时，会给出很多（但不是所有）警告信息，以帮助程序员查错。但并不能解决所有的问题：有些“错误”程序是合法的，只是这些动作不是你所期望的。</p>
+<p><strong>C****语言中的gets(s)存在缓冲区溢出漏洞，不推荐使用。</strong></p>
+<p>代替者fgets?教程<a target="_blank" rel="noopener" href="http://c语言中的gets(s)存在缓冲区溢出漏洞,不推荐使用./"></a><a target="_blank" rel="noopener" href="http://c语言中的gets(s)存在缓冲区溢出漏洞,不推荐使用/">http://C语言中的gets(s)存在缓冲区溢出漏洞，不推荐使用</a>。</p>
+<h1 id="字母操作"><a href="#字母操作" class="headerlink" title="字母操作"></a>字母操作</h1><h3 id="isalpha"><a href="#isalpha" class="headerlink" title="isalpha"></a><strong>isalpha</strong></h3><p><strong>原型：</strong>int isalpha（int ch）</p>
+<p><strong>用法：</strong>头文件加入#include <cctype>(C语言使用&lt;ctype.h&gt;)</p>
+<p><strong>功能：</strong>判断字符ch是否为英文字母，当ch为英文字母a-z或A-Z时，在标准c中相当于使用“isupper(ch)islower(ch)”做测试，返回非零值(不一定是1)，否则返回零。</p>
+<h3 id="isupper"><a href="#isupper" class="headerlink" title="isupper"></a><strong>isupper</strong></h3><p><strong>原型：</strong>extern int isupper(int c);</p>
+<p><strong>头文件：</strong><cctype>( C语言使用&lt;ctype.h&gt;)</p>
+<p><strong>功能：</strong>判断字符c是否为大写英文字母</p>
+<p><strong>说明：</strong>当参数c为大写英文字母(A-Z)时，返回非零值，否则返回零。</p>
+<p><strong>附加说明：</strong> 此为宏定义，非真正函数。</p>
+<h3 id="islower"><a href="#islower" class="headerlink" title="islower"></a><strong>islower</strong></h3><p><strong>头文件：</strong>#include<cctype>( C语言使用&lt;ctype.h&gt;)</p>
+<p><strong>用法：</strong>int islower(int c)</p>
+<p><strong>函数说明：</strong>检查参数c是否为小写英文字母。</p>
+<p><strong>返回值：</strong>若参数c为小写英文字母，则返回TRUE，否则返回NULL(0)。</p>
+<p><strong>附加说明：</strong>此为宏定义，非真正函数。</p>
+<h3 id="toupper"><a href="#toupper" class="headerlink" title="toupper"></a><strong>toupper</strong></h3><p><strong>原型：</strong>extern int toupper(int c);</p>
+<p><strong>用法：</strong>#include &lt;ctype.h&gt;</p>
+<p><strong>功能：</strong>将字符c转换为大写英文字母</p>
+<p><strong>说明：</strong>如果c为小写英文字母，则返回对应的大写字母；否则返回原来的值。</p>
+<h3 id="tolower"><a href="#tolower" class="headerlink" title="tolower"></a><strong>tolower</strong></h3><p><strong>功 能:</strong> 把字符转换成小写字母,非字母字符不做出处理</p>
+<p><strong>头文件：</strong>在VC6.0可以是ctype.h或者stdlib.h，常用ctype.h</p>
+<p><strong>用 法:</strong> int tolower(int c);</p>
+<p><strong>说明：</strong>如果c为大写英文字母，则返回对应的小写字母；否则返回原来的值。</p>
+<h3 id="isdigit"><a href="#isdigit" class="headerlink" title="isdigit"></a><strong>isdigit</strong></h3><p><strong>原型：</strong>extern int isdigit(char c);</p>
+<p><strong>用法：</strong>#include &lt;ctype.h&gt;</p>
+<p><strong>功能：</strong>判断字符c是否为数字</p>
+<p><strong>说明：</strong>当c为数字0-9时，返回非零值，否则返回零。</p>
+<p><strong>附加说明</strong>:此为宏定义，非真正函数。</p>
+<h3 id="isprint"><a href="#isprint" class="headerlink" title="isprint"></a><strong>isprint</strong></h3><p><strong>原型：</strong>extern int isprint(char c);</p>
+<p><strong>用法：</strong>#include &lt;ctype.h&gt;</p>
+<p><strong>功能：</strong>判断字符c是否为可打印字符（含空格）</p>
+<p><strong>说明：</strong>当c为可打印字符（0x20-0x7e）时，返回非零值，否则返回零。</p>
+<p><strong>附加说明：</strong>此为宏定义，非真正函数。</p>
+<p><strong>提示：</strong>头文件ctype.h中定义的isalpha、isdigit、isprint等工具可以用来判断字符的属性，而toupper、tolower等工具可以用来转换大小写。</p>
+<p><strong>说明：</strong></p>
+<p>（1）isalpha(c)用来检查c是否为字母，如果是字母，则返回1；否则返回0。</p>
+<p>（2）isdigit(c)用来检查c是否为数字（0～9），如果是数字，则返回1；否则返回0。</p>
+<p>（3）isprint(c)用来检查c是否为可打印字符（不包括空格），其ASCII码值在0x21～0x7e之间，如果是可打印字符，则返回1；否则返回0。</p>
+<p>（4）toupper(c)用来将c字符转换为大写字母，返回c对应的大写字母。</p>
+<p>（5）tolower(c)用来将c字符转换为小写字母，返回c对应的小写字母。</p>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-usr-bin-env-python-no-such-file-or-directory" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/13/usr-bin-env-python-no-such-file-or-directory/">Command &#39;python&#39; not found 解决办法</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/07/13/usr-bin-env-python-no-such-file-or-directory/" class="article-date">
+  <time datetime="2021-07-13T04:26:38.000Z" itemprop="datePublished">2021-07-13</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://blog.666baby.com/wp-content/uploads/2021/07/3333-300x145.jpg"> 在确保安装了python3的情况下 输入命令 <code>sudo ln -s /usr/bin/python3 /usr/bin/python</code> 用ln把python3链接到python</p>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/10/">prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/12/">next</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+    <div class="widget-wrap-info">
+        <img src="https://blog.666baby.com/wp-content/uploads/2021/12/Pasted-2.png" class="widget-wrap-info-img">
+        <div class="widget-wrap-info-author">吴晗</div>
+        <div class="widget-wrap-info-signature">业精于勤，荒于嬉。</div>
+    </div>
+    <div class="info-nav">
+        <ul class="info-nav-ul">
+        
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="home"></i>
+                    </span>
+                    <span class="info-nav-name">首页</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/archives">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="archive"></i>
+                    </span>
+                    <span class="info-nav-name">归档</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/about">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="alert-circle"></i>
+                    </span>
+                    <span class="info-nav-name">关于</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/board">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="edit-3"></i>
+                    </span>
+                    <span class="info-nav-name">留言</span>
+                </div>
+            </a>
+           </li>
+          
+        </ul>
+    </div>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 吴晗<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> | Theme by  <a href="https://github.com/FuShaoLei/hexo-theme-hiya" target="_blank">Hiya</a>
+      
+        <br>
+        <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+      <span id="busuanzi_container_site_uv">
+        访客数<span id="busuanzi_value_site_uv"></span>人次
+      </span>
+        
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/,home" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives,archive" class="mobile-nav-link">归档</a>
+  
+    <a href="/about,alert-circle" class="mobile-nav-link">关于</a>
+  
+    <a href="/board,edit-3" class="mobile-nav-link">留言</a>
+  
+</nav>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script>
+    feather.replace()
+</script>
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

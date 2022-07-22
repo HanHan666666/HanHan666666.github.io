@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Ubuntu22.04WSL安装时中文乱码 | AmazingBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+ 
+  
+    <link rel="icon" href="https://blog.666baby.com/wp-content/uploads/2022/01/cropped-%E6%9C%AA%E6%A0%87%E9%A2%98-1-32x32.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+          <a class="main-nav-link" href="/board">留言</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ubuntu22-04wslnochinese-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="name">
+      Ubuntu22.04WSL安装时中文乱码
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2022/04/26/ubuntu22-04wslnochinese-1/" class="article-date">
+  <time datetime="2022-04-26T07:20:37.000Z" itemprop="datePublished">2022-04-26</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+
+          
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WSL/" rel="tag">WSL</a></li></ul>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如下图，全是方块的情况下一般是没有字体，想办法在安装之前把字体装好就可以解决问题。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/Snipaste_2022-04-26_13-56-22.png"></p>
+<p>本文提供的思路是解压WSL的安装包，将中文字体复制进ubuntu2204系统文件压缩包<code>install.tar.gz</code>，然后替换原来的<code>install.tar.gz</code>，再进行安装。</p>
+<p>众所周知，直接在应用商店安装是拿不到安装包的</p>
+<p>想要拿到安装包必须要去一个第三方网站：<a target="_blank" rel="noopener" href="https://store.rg-adguard.net/">Microsoft Store - Generation Project (v1.2.3) [by @rgadguard &amp; mkuba50] (rg-adguard.net)</a></p>
+<p>将Microsoft Store链接粘贴进去即可拿到直链</p>
+<p>在Store点击分享，然后复制链接</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-20.png"></p>
+<p>下载体积最大的那个版本</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-21.png"></p>
+<p>下载之后直接使用7zip打开，会发现有两个架构的appx，根据需要选择一个，其他的文件不需要。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-22.png"></p>
+<p>将他复制出来再次解压可以发现一个<code>intslall.tar.gz</code>文件，这个文件应该就是WSL的系统文件。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-19.png"></p>
+<p>我们需要修改这个压缩包，将中文字体复制进去，再重新进行打包。</p>
+<p>解包和打包这一系列操作可以在另一个WSL中进行。</p>
+<p>将install.tar.gz复制到虚拟机目录中。</p>
+<p>为避免在NTFS下打包和解包带来不必要的麻烦，复制到Linux虚拟机中的ext4文件系统下进行操作。</p>
+<p>使用<code>sudo tar -xvzf install.tar.gz</code>解包。</p>
+<p>在解包出来文件的<code>usr/share/fonts/</code>新建一个文件夹名称随意。</p>
+<p>将字体复制到<code>usr/share/fonts/PingFangSC</code></p>
+<p>如果用explorer操作WSL目录时出现权限问题，可以将这个文件夹设置权限：<code>sudo chmod 777 PingFangSC</code></p>
+<p>(记得在确保安全的情况下使用777权限)</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-24.png"></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-25.png"></p>
+<p>添加完成之后再打包成<code>install.tar.gz</code>替换原来的文件。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-26.png"></p>
+<p><code>sudo tar zcvf install.tar.gz .</code></p>
+<p>然后安装Ubuntu22.04 WSL</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-27.png"></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/04/image-28.png"></p>
+<p>成功安装苹方字体。</p>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "j7cOI85uofC4BmWjlUOCkqrN-gzGzoHsz",
+        app_key: "g6Bg0W8QxTnrlamF8JwPt6Rr",
+        placeholder: "留下你来过的痕迹~",
+        avatar:"robohash",
+    });
+</script>
+
+  </section>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+    <div class="widget-wrap-info">
+        <img src="https://blog.666baby.com/wp-content/uploads/2021/12/Pasted-2.png" class="widget-wrap-info-img">
+        <div class="widget-wrap-info-author">吴晗</div>
+        <div class="widget-wrap-info-signature">业精于勤，荒于嬉。</div>
+    </div>
+    <div class="info-nav">
+        <ul class="info-nav-ul">
+        
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="home"></i>
+                    </span>
+                    <span class="info-nav-name">首页</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/archives">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="archive"></i>
+                    </span>
+                    <span class="info-nav-name">归档</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/about">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="alert-circle"></i>
+                    </span>
+                    <span class="info-nav-name">关于</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/board">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="edit-3"></i>
+                    </span>
+                    <span class="info-nav-name">留言</span>
+                </div>
+            </a>
+           </li>
+          
+        </ul>
+    </div>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 吴晗<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> | Theme by  <a href="https://github.com/FuShaoLei/hexo-theme-hiya" target="_blank">Hiya</a>
+      
+        <br>
+        <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+      <span id="busuanzi_container_site_uv">
+        访客数<span id="busuanzi_value_site_uv"></span>人次
+      </span>
+        
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/,home" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives,archive" class="mobile-nav-link">归档</a>
+  
+    <a href="/about,alert-circle" class="mobile-nav-link">关于</a>
+  
+    <a href="/board,edit-3" class="mobile-nav-link">留言</a>
+  
+</nav>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script>
+    feather.replace()
+</script>
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

@@ -48,7 +48,7 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-电邮" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-windowssshcpoyid-1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -56,13 +56,134 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/21/%E7%94%B5%E9%82%AE/">电子邮件</a>
+      <a class="p-name article-title" href="/2021/11/28/windowssshcpoyid-1/">Windows下ssh-cpoy-id等效命令</a>
     </h1>
   
 
         <div class="article-meta">
-          <a href="/2021/03/21/%E7%94%B5%E9%82%AE/" class="article-date">
-  <time datetime="2021-03-21T10:22:15.000Z" itemprop="datePublished">2021-03-21</time>
+          <a href="/2021/11/28/windowssshcpoyid-1/" class="article-date">
+  <time datetime="2021-11-28T15:07:58.000Z" itemprop="datePublished">2021-11-28</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>type ~\.ssh\id_rsa.pub ssh username@hosts -p port &quot;cat &gt;&gt; ~/.ssh/authorized_keys&quot;</code></p>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-apache迁移nginx后wordpress-404" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/11/26/apache%E8%BF%81%E7%A7%BBnginx%E5%90%8Ewordpress-404/">Apache迁移nginx后WordPress 404</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/11/26/apache%E8%BF%81%E7%A7%BBnginx%E5%90%8Ewordpress-404/" class="article-date">
+  <time datetime="2021-11-26T14:34:51.000Z" itemprop="datePublished">2021-11-26</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://blog.666baby.com/wp-content/uploads/2021/11/Pasted-19.png"> 解决方法：在nginx的vhost配置文件中添加伪静态规则</p>
+<p>location &#x2F; {<br>try_files $uri $uri&#x2F; &#x2F;index.php?$args;<br>}<br>rewrite &#x2F;wp-admin$ $scheme:&#x2F;&#x2F;$host$uri&#x2F; permanent;</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/11/Pasted-20.png"></p>
+<blockquote>
+<p>来自：如何解决迁移Apache服务器至nginx后，Wordpress出现404的问题？ - Brain1981的回答 - 知乎 <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/68267528/answer/261500849">https://www.zhihu.com/question/68267528/answer/261500849</a></p>
+</blockquote>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-apache迁移nginx后wordpress-404-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/11/26/apache%E8%BF%81%E7%A7%BBnginx%E5%90%8Ewordpress-404-1/">Apache迁移nginx后WordPress 404</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/11/26/apache%E8%BF%81%E7%A7%BBnginx%E5%90%8Ewordpress-404-1/" class="article-date">
+  <time datetime="2021-11-26T14:34:51.000Z" itemprop="datePublished">2021-11-26</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://blog.666baby.com/wp-content/uploads/2021/11/Pasted-19.png"> 解决方法：在nginx的vhost配置文件中添加伪静态规则</p>
+<p>location &#x2F; {<br>try_files $uri $uri&#x2F; &#x2F;index.php?$args;<br>}<br>rewrite &#x2F;wp-admin$ $scheme:&#x2F;&#x2F;$host$uri&#x2F; permanent;</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/11/Pasted-20.png"></p>
+<blockquote>
+<p>来自：如何解决迁移Apache服务器至nginx后，Wordpress出现404的问题？ - Brain1981的回答 - 知乎 <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/68267528/answer/261500849">https://www.zhihu.com/question/68267528/answer/261500849</a></p>
+</blockquote>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-微信公众号震惊部" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/11/26/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E9%9C%87%E6%83%8A%E9%83%A8/">微信公众号@震惊部</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/11/26/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E9%9C%87%E6%83%8A%E9%83%A8/" class="article-date">
+  <time datetime="2021-11-26T14:26:34.000Z" itemprop="datePublished">2021-11-26</time>
 </a>
           
   <div class="article-category">
@@ -84,7 +205,7 @@
 
 
   
-    <article id="post-twitter" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-电子邮件" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -92,13 +213,13 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/21/twitter/">微信公众号@震惊部</a>
+      <a class="p-name article-title" href="/2021/11/26/%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6/">电子邮件</a>
     </h1>
   
 
         <div class="article-meta">
-          <a href="/2021/03/21/twitter/" class="article-date">
-  <time datetime="2021-03-21T10:22:15.000Z" itemprop="datePublished">2021-03-21</time>
+          <a href="/2021/11/26/%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6/" class="article-date">
+  <time datetime="2021-11-26T14:26:34.000Z" itemprop="datePublished">2021-11-26</time>
 </a>
           
   <div class="article-category">
@@ -120,7 +241,7 @@
 
 
   
-    <article id="post-17" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-微信公众号震惊部-1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -128,13 +249,13 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/21/17/">Untitled Post - 1</a>
+      <a class="p-name article-title" href="/2021/11/26/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E9%9C%87%E6%83%8A%E9%83%A8-1/">微信公众号@震惊部</a>
     </h1>
   
 
         <div class="article-meta">
-          <a href="/2021/03/21/17/" class="article-date">
-  <time datetime="2021-03-21T10:22:14.000Z" itemprop="datePublished">2021-03-21</time>
+          <a href="/2021/11/26/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E9%9C%87%E6%83%8A%E9%83%A8-1/" class="article-date">
+  <time datetime="2021-11-26T14:26:34.000Z" itemprop="datePublished">2021-11-26</time>
 </a>
           
   <div class="article-category">
@@ -148,6 +269,156 @@
     <div class="article-entry" itemprop="articleBody">
       
         
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-电子邮件-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/11/26/%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6-1/">电子邮件</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/11/26/%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6-1/" class="article-date">
+  <time datetime="2021-11-26T14:26:34.000Z" itemprop="datePublished">2021-11-26</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/uncategorized/">uncategorized</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-dockerdynamicport" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/11/18/dockerdynamicport/">Docker容器动态修改端口的一个方法</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/11/18/dockerdynamicport/" class="article-date">
+  <time datetime="2021-11-18T09:00:30.000Z" itemprop="datePublished">2021-11-18</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="修改容器配置文件"><a href="#修改容器配置文件" class="headerlink" title="修改容器配置文件"></a>修改容器配置文件</h2><p>容器的配置文件<code>/var/lib/docker/containers/[容器ID]</code>目录 修改这两个配置文件<code>hostconfig.json</code>和<code>config.v2.json</code>  修改好之后，重启容器服务。 <code>sudo vim hostconfig.json</code> <img src="https://blog.666baby.com/wp-content/uploads/2021/11/Pasted-15.png"> 打开内容之后一大堆，没有换行， 复制到vscode里面 <img src="https://blog.666baby.com/wp-content/uploads/2021/11/Pasted-16.png"> 再打开<code>config.v2.json</code> <img src="https://blog.666baby.com/wp-content/uploads/2021/11/Pasted-17.png"> 又是一大堆，懒得复制，直接格式化json文档<code>:%!python -m json.tool</code> <img src="https://blog.666baby.com/wp-content/uploads/2021/11/Pasted-18.png"></p>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-dockerdynamicport-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/11/18/dockerdynamicport-1/">Docker容器动态修改端口的一个方法</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/11/18/dockerdynamicport-1/" class="article-date">
+  <time datetime="2021-11-18T09:00:30.000Z" itemprop="datePublished">2021-11-18</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="修改容器配置文件"><a href="#修改容器配置文件" class="headerlink" title="修改容器配置文件"></a>修改容器配置文件</h2><p>容器的配置文件<code>/var/lib/docker/containers/[容器ID]</code>目录 修改这两个配置文件<code>hostconfig.json</code>和<code>config.v2.json</code>  修改好之后，重启容器服务。 <code>sudo vim hostconfig.json</code> <img src="https://blog.666baby.com/wp-content/uploads/2021/11/Pasted-15.png"> 打开内容之后一大堆，没有换行， 复制到vscode里面 <img src="https://blog.666baby.com/wp-content/uploads/2021/11/Pasted-16.png"> 再打开<code>config.v2.json</code> <img src="https://blog.666baby.com/wp-content/uploads/2021/11/Pasted-17.png"> 又是一大堆，懒得复制，直接格式化json文档<code>:%!python -m json.tool</code> <img src="https://blog.666baby.com/wp-content/uploads/2021/11/Pasted-18.png"></p>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-codelldbandvscode" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/11/06/codelldbandvscode/">通过扩展CodeLLDB解决macOS下vscode内置终端不显示输出的问题</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/11/06/codelldbandvscode/" class="article-date">
+  <time datetime="2021-11-06T08:10:05.000Z" itemprop="datePublished">2021-11-06</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在macOS中的vscode，如果没有安装codelldb扩展的情况下，直接选择C++(GDB&#x2F;LLDB)配置来调试C语言，可能会出现终端中无法输出输入内容的问题。 解决方法之一是安装CodeLLDB扩展，来进行LLDB调试 <img src="https://blog.666baby.com/wp-content/uploads/2021/11/Pasted-7.png"> 然后在添加运行配置的时候选择第三项 LLDB，会自动生成配置文件。 <img src="https://blog.666baby.com/wp-content/uploads/2021/11/Pasted-6.png"> <img src="https://blog.666baby.com/wp-content/uploads/2021/11/Pasted-8.png"> 配置文件在工作区中的.vscode文件夹中launch.json文件。 生成的配置文件大概是以下这个样子 <img src="https://blog.666baby.com/wp-content/uploads/2021/11/Pasted-5.png"> <img src="https://blog.666baby.com/wp-content/uploads/2021/11/Pasted-2.png"> 这个配置文件，直接这样还不可以使用，11行那里还需要修改一下。 需要添加上要运行的程序目录与名称 把progrem后边双引号中的内容换成这个<code>$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;</code> <code>$&#123;&#125;</code> 类似于这样的叫预定义变量，文档：<a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/editor/variables-reference">Visual Studio Code Variables Reference</a> 换好之后是这个样子 <img src="https://blog.666baby.com/wp-content/uploads/2021/11/Pasted-10.png"> debug之前先运行生成任务，编译器选择clang，如果有报错试试C语言选择gcc，C++选择g++。 如果不想每次都手动选择编译器，可以<code>终端-配置默认生成任务</code> <img src="https://blog.666baby.com/wp-content/uploads/2021/11/Pasted-9.png"> 然后再按F5，终端显示正常，并且可以输入内容。 <img src="https://blog.666baby.com/wp-content/uploads/2021/11/Pasted-4.png">   谁知道怎么才能F5一键运行，快快告诉我！   参考：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://go.microsoft.com/fwlink/?linkid=830387">https://go.microsoft.com/fwlink/?linkid=830387</a></li>
+</ul>
+
       
     </div>
   </div>
@@ -160,7 +431,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/6/">prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span>
+    <a class="extend prev" rel="prev" href="/page/6/">prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/8/">next</a>
   </nav>
 
 </section>

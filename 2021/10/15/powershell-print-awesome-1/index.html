@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>PowerShell启动时输出“佛祖保佑，永无bug” | AmazingBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+ 
+  
+    <link rel="icon" href="https://blog.666baby.com/wp-content/uploads/2022/01/cropped-%E6%9C%AA%E6%A0%87%E9%A2%98-1-32x32.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+          <a class="main-nav-link" href="/board">留言</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-powershell-print-awesome-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="name">
+      PowerShell启动时输出“佛祖保佑，永无bug”
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/10/15/powershell-print-awesome-1/" class="article-date">
+  <time datetime="2021-10-15T07:59:20.000Z" itemprop="datePublished">2021-10-15</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧</a>►<a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://blog.666baby.com/wp-content/uploads/2021/10/Pasted-6.png"></p>
+<h3 id="基本思路：在powershell的启动配置文件中使用cat命令输出文本内容"><a href="#基本思路：在powershell的启动配置文件中使用cat命令输出文本内容" class="headerlink" title="基本思路：在powershell的启动配置文件中使用cat命令输出文本内容"></a>基本思路：在powershell的启动配置文件中使用cat命令输出文本内容</h3><p>环境配置：Windows terminal，PowerShell 7 首先在Windows terminal的设置中关掉powershell默认的启动提示语。 <img src="https://blog.666baby.com/wp-content/uploads/2021/10/Pasted-7.png"> 在Windows的设置中找到powershell 7 的命令行选项，加上 -nologo，如图所示： <img src="https://blog.666baby.com/wp-content/uploads/2021/10/Pasted-9.png"> 下面编写powershell的配置文件，并设置启动时的输出内容   先找一个你记得住的位置，来存放要输出的内容，它以一个文本文件的形式保存。 我用我系统的下载目录来存放这个文件，先新建一个txt文件， 比如<code>Powershell_out.txt</code> 将“佛祖保佑永无bug”的文本复制进去</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">                   _ooOoo_</span><br><span class="line">                  o8888888o</span><br><span class="line">                  88&quot; . &quot;88</span><br><span class="line">                  ( -_- )</span><br><span class="line">                  O\  =  /O</span><br><span class="line">               ____/`---&#x27;\____</span><br><span class="line">             .&#x27;  \\     //  `.</span><br><span class="line">            /  \\  :  //  \</span><br><span class="line">           /  _ -:- -  \</span><br><span class="line">               \\\  -  ///    </span><br><span class="line">            \_  &#x27;&#x27;\---/&#x27;&#x27;     </span><br><span class="line">           \  .-\__  `-`  ___/-. /</span><br><span class="line">         ___`. .&#x27;  /--.--\  `. . __</span><br><span class="line">      .&quot;&quot; &#x27;&lt;  `.___\_&lt;&gt;_/___.&#x27;  &gt;&#x27;&quot;&quot;.</span><br><span class="line">       :  `- \`.;`\ _ /`;.`/ - ` :  </span><br><span class="line">     \  \ `-.   \_ __\ /__ _/   .-` /  /</span><br><span class="line">======`-.____`-.___\_____/___.-`____.-&#x27;======</span><br><span class="line">                   `=---=&#x27;</span><br><span class="line">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span><br><span class="line">              佛祖保佑       永无BUG</span><br></pre></td></tr></table></figure>
+
+<p>保存文件，然后右键复制文件路径，把他粘贴进powershell配置文件   <img src="https://blog.666baby.com/wp-content/uploads/2021/10/Pasted-10.png"> 然后使用<code>notepad $profile</code> 这个命令来打开配置文件 notepad的意思是用记事本打开，可以换成<code>notepad $profile</code> 用vscode打开，当然也可以 <code>vim $profile</code> 第一次打开有可能是个空文件。直接在里面添加进去<code>cat &quot;文件路径&quot;</code> 。 如果有其他内容，把这条命令放在第一行，可以在视觉上加快打开速度。 <img src="https://blog.666baby.com/wp-content/uploads/2021/10/Pasted-11.png"> 这样就配置完成。重启Windows terminal中的powershell查看效果。</p>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "j7cOI85uofC4BmWjlUOCkqrN-gzGzoHsz",
+        app_key: "g6Bg0W8QxTnrlamF8JwPt6Rr",
+        placeholder: "留下你来过的痕迹~",
+        avatar:"robohash",
+    });
+</script>
+
+  </section>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+    <div class="widget-wrap-info">
+        <img src="https://blog.666baby.com/wp-content/uploads/2021/12/Pasted-2.png" class="widget-wrap-info-img">
+        <div class="widget-wrap-info-author">吴晗</div>
+        <div class="widget-wrap-info-signature">业精于勤，荒于嬉。</div>
+    </div>
+    <div class="info-nav">
+        <ul class="info-nav-ul">
+        
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="home"></i>
+                    </span>
+                    <span class="info-nav-name">首页</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/archives">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="archive"></i>
+                    </span>
+                    <span class="info-nav-name">归档</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/about">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="alert-circle"></i>
+                    </span>
+                    <span class="info-nav-name">关于</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/board">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="edit-3"></i>
+                    </span>
+                    <span class="info-nav-name">留言</span>
+                </div>
+            </a>
+           </li>
+          
+        </ul>
+    </div>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 吴晗<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> | Theme by  <a href="https://github.com/FuShaoLei/hexo-theme-hiya" target="_blank">Hiya</a>
+      
+        <br>
+        <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+      <span id="busuanzi_container_site_uv">
+        访客数<span id="busuanzi_value_site_uv"></span>人次
+      </span>
+        
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/,home" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives,archive" class="mobile-nav-link">归档</a>
+  
+    <a href="/about,alert-circle" class="mobile-nav-link">关于</a>
+  
+    <a href="/board,edit-3" class="mobile-nav-link">留言</a>
+  
+</nav>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script>
+    feather.replace()
+</script>
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

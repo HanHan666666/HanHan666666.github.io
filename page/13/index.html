@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>AmazingBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+ 
+  
+    <link rel="icon" href="https://blog.666baby.com/wp-content/uploads/2022/01/cropped-%E6%9C%AA%E6%A0%87%E9%A2%98-1-32x32.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+          <a class="main-nav-link" href="/board">留言</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-visual-studio-code-for-c-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/04/11/visual-studio-code-for-c-1/">Visual Studio Code 简单配置C语言环境</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/04/11/visual-studio-code-for-c-1/" class="article-date">
+  <time datetime="2021-04-11T03:29:03.000Z" itemprop="datePublished">2021-04-11</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+
+          
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VScode/" rel="tag">VScode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">编程环境配置</a></li></ul>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是一个快餐式教程，以简单快速的方法，实现了c语言在vscode中的仅运行或断点调试。</p>
+<h2 id="1-安装C-x2F-C-编译器"><a href="#1-安装C-x2F-C-编译器" class="headerlink" title="1.安装C&#x2F;C++编译器"></a>1.安装C&#x2F;C++编译器</h2><p>推荐下载网站<a target="_blank" rel="noopener" href="http://winlibs.com/">http://winlibs.com/</a></p>
+<p>找一个最新版本下载并安装</p>
+<p>如果下载慢的话，右键复制链接到迅雷下载</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/03/image-23.png"></p>
+<p>建议下载Win64版本，7z或zip均可</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/03/image-24.png"></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-14.png"></p>
+<p>一定要全英文路径的目录（每一级文件夹都不要有中文）</p>
+<p>例如 E:\mingw</p>
+<h3 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h3><p>C语言需要先编译成一个可执行文件，然后才能运行，因为vscode仅是一个用来打代码的编辑器，不提供对代码的编译功能，需要手动安装编译器才能够正常使用，刚才上面下载的文件便是C&#x2F;C++的编译器。</p>
+<p>Dev C++或者是cfree安装之后即可使用，是因为它是一个IDE(Integrated Development Environment,集成式开发环境)，集成了C语言的编译器，打开软件安装目录可以看到mingw文件夹，这个文件夹便里面存的是它的编译器。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-9.png"></p>
+<p>其实我们也可以使用它的编译器，但是版本实在是太低了</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-10.png"></p>
+<h2 id="2-设置环境变量"><a href="#2-设置环境变量" class="headerlink" title="2.设置环境变量"></a>2.设置环境变量</h2><p>解压完成之后，找到解压出来的文件，复制文件内bin</p>
+<p>例如：E:\mingw64\bin</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-7.png"></p>
+<p>然后 Windows 10 : 开始按钮右键——系统——高级系统设置——环境变量。</p>
+<p>Windows 11开始菜单右键没有了 系统 这个选项，使用此电脑右键-属性-高级系统设置——环境变量。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-2.png"></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted.png"></p>
+<p>记得把输入框中的双引号去掉，然后全部点击确定，然后测试环境变量</p>
+<h2 id="4-在终端中测试环境变量："><a href="#4-在终端中测试环境变量：" class="headerlink" title="4.在终端中测试环境变量："></a>4.在终端中测试环境变量：</h2><p>“开始按钮右键打开PowerShell”</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-3.png"></p>
+<p>win+R 运行 cmd 在终端中输入 <code>gcc -v</code>  会输出以上版本信息 ，表明配置成功</p>
+<h2 id="5-在vscode中安装两个需要的扩展"><a href="#5-在vscode中安装两个需要的扩展" class="headerlink" title="5.在vscode中安装两个需要的扩展"></a><strong>5.在vscode中安装两个需要的扩展</strong></h2><p>以上几步是安装完成了编译器，现在要添加VScode对C语言的支持，第一个扩展提供了语法检查和断点调试功能，第二个扩展提供了快速运行的功能，本教程简单的使C语言运行起来便依靠的code runner这个扩展。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-8.png"></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-6.png"></p>
+<h2 id="6-设置一下code-runner使其可以在程序运行时输入内容"><a href="#6-设置一下code-runner使其可以在程序运行时输入内容" class="headerlink" title="6.设置一下code runner使其可以在程序运行时输入内容"></a>6.设置一下code runner使其可以在程序运行时输入内容</h2><p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-5.png"></p>
+<p><strong>一定要勾选 Run In Terminal这一个选项</strong></p>
+<p>如果不勾选，程序将在输出中显示，而在输出中显示时，如果有scanf这个语句要输入内容，在输出中是无法输入内容的，所以一定要在终端中运行。</p>
+<p>比如没有勾选，会出现这个样子，它是无法输入内容的。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-12.png"></p>
+<h2 id="查看效果"><a href="#查看效果" class="headerlink" title="查看效果"></a>查看效果</h2><p>输出一个hello world试试，点击右上角小三角运行程序。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2022/07/image-11.png"></p>
+<p>如果不需要断点调试，配置到此结束。</p>
+<h2 id="debug配置"><a href="#debug配置" class="headerlink" title="debug配置"></a>debug配置</h2><p><strong>以下内容已过时</strong></p>
+<p>首先你应该有一个文件夹作为工作区，来储存你的代码，这个文件夹也将存放你的配置文件。</p>
+<p>在vscode中每次打开一个文件夹都要对其进行debug的配置。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-15.png"></p>
+<p>首先将这一个文件夹拖入vscode中</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-16.png"></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-17.png"></p>
+<p>然后点击信任，因为文件夹的作者就是你本人。</p>
+<p>打开文件夹之后我们就可以新建一个c文件，</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-18.png"></p>
+<p>下面开始正题进入debug功能的配置</p>
+<p>首先 运行-添加配置-C++(GDB&#x2F;LLDB)-gcc.exe生成和调试活动配置文件</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-19.png"></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-20.png"></p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-24.png"></p>
+<p>点击gcc.exe生成和调试活动配置文件，运行之后会出现这个界面，关掉launch.json即可，下面的面板栏，</p>
+<p>点击终端即可看到输出的内容，证明配置成功。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-22.png"></p>
+<p>成功进行断点调试</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-23.png"></p>
+<p>这个时候你的文件夹中会出现一个.vscode文件夹，这个文件夹中存的是你的配置文件，需要重新配置将其删除即可。</p>
+<p><img src="https://blog.666baby.com/wp-content/uploads/2021/04/Pasted-25.png"></p>
+<blockquote>
+<p>参考：</p>
+<p>VScode对C&#x2F;C++环境支持的配置<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/77074009">基于 VS Code + MinGW-w64 的C语言&#x2F;C++简单环境配置，专致小白 - 知乎 (zhihu.com)</a></p>
+<p>debug配置方法：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/85273055">VS Code之C&#x2F;C++程序的调试(Debug)功能简介 - 知乎 (zhihu.com)</a></p>
+</blockquote>
+
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-电邮" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/03/21/%E7%94%B5%E9%82%AE/">电子邮件</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/03/21/%E7%94%B5%E9%82%AE/" class="article-date">
+  <time datetime="2021-03-21T10:22:15.000Z" itemprop="datePublished">2021-03-21</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/uncategorized/">uncategorized</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-twitter" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/03/21/twitter/">微信公众号@震惊部</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/03/21/twitter/" class="article-date">
+  <time datetime="2021-03-21T10:22:15.000Z" itemprop="datePublished">2021-03-21</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/uncategorized/">uncategorized</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-twitter-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/03/21/twitter-1/">微信公众号@震惊部</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/03/21/twitter-1/" class="article-date">
+  <time datetime="2021-03-21T10:22:15.000Z" itemprop="datePublished">2021-03-21</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/uncategorized/">uncategorized</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-电邮-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/03/21/%E7%94%B5%E9%82%AE-1/">电子邮件</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/03/21/%E7%94%B5%E9%82%AE-1/" class="article-date">
+  <time datetime="2021-03-21T10:22:15.000Z" itemprop="datePublished">2021-03-21</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/uncategorized/">uncategorized</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-17" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/03/21/17/">Untitled Post - 1</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/03/21/17/" class="article-date">
+  <time datetime="2021-03-21T10:22:14.000Z" itemprop="datePublished">2021-03-21</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/uncategorized/">uncategorized</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+    <article id="post-17-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/03/21/17-1/">Untitled Post - 1</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <a href="/2021/03/21/17-1/" class="article-date">
+  <time datetime="2021-03-21T10:22:14.000Z" itemprop="datePublished">2021-03-21</time>
+</a>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/uncategorized/">uncategorized</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+  </div>
+ 
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/12/">prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+    <div class="widget-wrap-info">
+        <img src="https://blog.666baby.com/wp-content/uploads/2021/12/Pasted-2.png" class="widget-wrap-info-img">
+        <div class="widget-wrap-info-author">吴晗</div>
+        <div class="widget-wrap-info-signature">业精于勤，荒于嬉。</div>
+    </div>
+    <div class="info-nav">
+        <ul class="info-nav-ul">
+        
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="home"></i>
+                    </span>
+                    <span class="info-nav-name">首页</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/archives">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="archive"></i>
+                    </span>
+                    <span class="info-nav-name">归档</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/about">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="alert-circle"></i>
+                    </span>
+                    <span class="info-nav-name">关于</span>
+                </div>
+            </a>
+           </li>
+          
+            <li class="info-nav-li">
+            <a class="info-nav-link" href="/board">
+                <div class="info-nav-div">
+                    <span class="info-nav-icon">
+                        <i data-feather="edit-3"></i>
+                    </span>
+                    <span class="info-nav-name">留言</span>
+                </div>
+            </a>
+           </li>
+          
+        </ul>
+    </div>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 吴晗<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> | Theme by  <a href="https://github.com/FuShaoLei/hexo-theme-hiya" target="_blank">Hiya</a>
+      
+        <br>
+        <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+      <span id="busuanzi_container_site_uv">
+        访客数<span id="busuanzi_value_site_uv"></span>人次
+      </span>
+        
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/,home" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives,archive" class="mobile-nav-link">归档</a>
+  
+    <a href="/about,alert-circle" class="mobile-nav-link">关于</a>
+  
+    <a href="/board,edit-3" class="mobile-nav-link">留言</a>
+  
+</nav>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script>
+    feather.replace()
+</script>
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>
